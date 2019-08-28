@@ -1,0 +1,244 @@
+
+
+<template name="lookOriginal">
+  <view class="lookOriginal">
+    <view class="lookOriginalText">查看</view>
+    <button class="scienceDetailBtn lookOriginalBtn" data-id="{{ scienceDetail._id }}" hover-class="hoverClass"  disabled="{{ scienceDetailsDisabled }}" formType="submit" data-event="lookOriginal">
+      审核原文
+    </button>
+    <image src="../../image/icon/icon_black_arrow.png" class="icon_arrows_r"></image>
+  </view>
+</template>
+
+<template name="authorWrite">
+  <view class="authorCont">
+    <view class="authorContHeaderTitle">专家撰写</view>
+    <view class="authorContSubtitle">本词条由</view>
+    <view class="authorContPeople {{ index !== 0 ? 'authorContPeopleMarginTop':'' }}" wx:for="{{ scienceDetail.write }}" wx:key="index">
+      <view class="authorContPeopleText">{{ item.doctor_hospital }}<text wx:if="{{ item.doctor_office !== '' }}">/{{ item.doctor_office }}</text>/{{ item.doctor_name }} <text wx:if="{{ item.doctor_rank !== '' }}">({{ item.doctor_rank }})</text> 撰写</view>
+    </view>
+  </view>
+</template>
+
+<template name="authorAudit">
+  <view class="authorCont">
+    <view class="authorContHeaderTitle">专家审核</view>
+    <view class="authorContSubtitle">本词条由</view>
+    <view class="authorContPeople {{ index !== 0 ? 'authorContPeopleMarginTop':'' }}" wx:for="{{ scienceDetail.audit }}" wx:key="index">
+      <view class="authorContPeopleText">{{ item.doctor_hospital }}<text wx:if="{{ item.doctor_office !== '' }}">/{{ item.doctor_office }}</text>/{{ item.doctor_name }} <text wx:if="{{ item.doctor_rank !== '' }}">({{ item.doctor_rank }})</text> 审核</view>
+    </view>
+  </view>
+</template>
+
+<template name="text">
+  <view class="scienceDetailTextContFlex">
+    <view class="scienceDetailTextCont">
+      <block wx:if="{{ scienceDetail.textArr.length > 0 }}" wx:for="{{ scienceDetail.textArr }}" wx:key="index">
+        <image mode="widthFix" wx:if="{{ item.type === 'image' }}" class="scienceDetailTextImg" src="{{ item.content }}"></image>
+        <view wx:else class="scienceDetailText">{{ item.content }}</view>
+      </block>
+    </view>
+  </view>
+</template>
+
+<template name="textStyle">
+  <view class="scienceDetailTextContFlex">
+    <view class="scienceDetailTextCont">
+      <block wx:if="{{ scienceDetail.textArr.length > 0 }}" wx:for="{{ scienceDetail.textArr }}" wx:key="index">
+        <image mode="widthFix" wx:if="{{ item.type === 'image' }}" class="scienceDetailTextImg" src="{{ item.content }}"></image>
+        <block wx:else>
+          <view wx:if="{{ item.type == 'one_title' }}"  class="scienceDetailTextOneTitle"><text selectable="true">{{ item.content }}</text></view>
+          <view wx:elif="{{ item.type == 'sub_title' }}"  class="scienceDetailTextSubTitle"><text selectable="true">{{ item.content }}</text></view>
+          <view wx:else  class="scienceDetailText"><text selectable="true">{{ item.content }}</text></view>
+        </block>
+      </block>
+    </view>
+  </view>
+</template>
+
+<template name="titleStyle">
+  <view class="scienceDetailTextTitleStyle scienceDetailTextTitle">{{ scienceDetail.name }}</view>
+</template>
+
+<template name="title">
+  <view class="scienceDetailTextTitle">{{ scienceDetail.name }}</view>
+</template>
+
+<template name="headImg">
+  <image mode="widthFix" src="{{ scienceDetail.topImg }}" class="scienceDetailHeadImg"></image>
+</template>
+
+<template name="describe">
+  <view class="scienceDetailDoctorBing">
+    <view class="scienceDetailDoctorBingImgCont">
+      <image src="{{ scienceDetail.doctor.url }}" class="scienceDetailDoctorBingImg"></image>
+    </view>
+    <view class="scienceDetailDescribeDoctorBingCont">
+      <view class="scienceDetailDoctorBingText">{{ scienceDetail.doctor.name }}</view>
+      <view class="scienceDetailDoctorBingText">{{ scienceDetail.doctor.position }} {{ scienceDetail.doctor.home }}</view>
+      <view class="scienceDetailDoctorBingText">{{ scienceDetail.doctor.address }}</view>
+    </view>
+  </view>
+</template>
+
+<template name="doctor">
+  <view class="scienceDetailDoctorBing">
+    <view class="scienceDetailDoctorNoHeadImgCont">
+      <image src="{{ scienceDetail.doctor.url }}" class="scienceDetailDoctorBingImg"></image>
+    </view>
+    <view class="scienceDetailDoctorNoHeadCont">
+      <view class="scienceDetailDoctorNoHeadContFlex">
+        <view class="scienceDetailDoctorBingText">{{ scienceDetail.doctor.name }}</view>
+        <!--<view class="scienceDetailDoctorNoHeadContText">-->
+        <view class="scienceDetailDoctorNoHeadContJob">{{ scienceDetail.doctor.home }}  {{ scienceDetail.doctor.job }}</view>
+        <!--</view>-->
+        <view class="scienceDetailDoctorNoHeadContJobPosition">{{ scienceDetail.doctor.position }}</view>
+      </view>
+      <!--<view class="scienceDetailDoctorBingGoodText">擅长：{{ scienceDetail.doctor.good }}</view>-->
+    </view>
+  </view>
+</template>
+
+<template name="doctorGood_describe">
+  <view class="scienceDetailDoctorGood_describe">
+    <view class="scienceDetailDoctorBingGoodAtView">
+      <view class="scienceDetailDoctorBingGoodAtViewTitle">擅长疾病</view>
+      <view class="scienceDetailDoctorBingGoodAtViewText">{{ scienceDetail.doctor.good }}</view>
+    </view>
+    <block wx:if="{{ scienceDetail.textArr.length > 0 }}">
+      <block wx:if="{{ scienceDetail.textArr[0].content !== '' }}">
+        <view class="scienceDetailDoctorBingGoodAtViewTitle">个人简介</view>
+      </block>
+    </block>
+  </view>
+</template>
+
+<template name="hospital">
+  <view class="scienceDetailHospitalLevelFlex" wx:if="{{ scienceDetail.level.length > 0 }}">
+    <view class="scienceDetailHospitalLevel">
+      <view wx:for="{{ scienceDetail.level }}" wx:key="index" class="scienceDetailHospitalLevelCont">
+        <image src="{{ item.url }}" class="{{ item.className }}"></image>
+        <view class="scienceDetailHospitalLevelText">{{ item.content }}</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="hospitalOther">
+  <view class="hospitalOtherFlex">
+    <view wx:if="{{ scienceDetail.address }}" class="scienceDetailHospitalOtherTextCont">
+      <image src="../../image/icon/address.png" class="scienceDetailHospitalOtherAddressImg"></image>
+      <view class="scienceDetailHospitalOtherText"><text selectable="true">{{ scienceDetail.address }}</text></view>
+    </view>
+    <button wx:if="{{ scienceDetail.telephone }}" style="border-bottom: 1rpx solid #e8e8e8;" class="scienceDetailHospitalOtherTextRouteCont hospitalOtherBtn" data-id="{{scienceDetail.telephoneNumber}}" hover-class="hoverClass" formType="submit" data-event="takePhone">
+      <image src="../../image/icon/phone.png" class="scienceDetailHospitalOtherPhoneImg"></image>
+      <view class="scienceDetailHospitalOtherRouteText"><text selectable="true">{{ scienceDetail.telephone }}</text></view>
+    </button>
+    <view wx:if="{{ scienceDetail.url }}" class="scienceDetailHospitalOtherTextCont">
+      <image src="../../image/icon/e.png" class="scienceDetailHospitalOtherEImg"></image>
+      <view class="scienceDetailHospitalOtherText"><text selectable="true">{{ scienceDetail.url }}</text></view>
+    </view>
+    <button wx:if="{{ scienceDetail.route }}" class="scienceDetailHospitalOtherTextRouteCont hospitalOtherBtn" data-id="{{scienceDetail }}" hover-class="hoverClass" formType="submit" data-event="mapNavigation">
+      <image src="../../image/icon/go.png" class="scienceDetailHospitalOtherGoImg"></image>
+      <view class="scienceDetailHospitalOtherRouteText"><text selectable="true">{{ scienceDetail.route }}</text></view>
+    </button>
+  </view>
+</template>
+
+<template name="lookOriginalAllText">
+  <template is="title" data="{{ scienceDetail }}"/>
+  <template is="text" data="{{ scienceDetail }}"/>
+  <block wx:if="{{ scienceDetail.write.length > 0 }}">
+    <template is="authorWrite" data="{{ scienceDetail }}"/>
+  </block>
+  <block wx:if="{{ scienceDetail.audit.length > 0 }}">
+    <template is="authorAudit" data="{{ scienceDetail }}"/>
+  </block>
+</template>
+
+<template name="allText">
+  <template is="{{ haveMoreStyle ?'titleStyle':'title'}}" data="{{ scienceDetail }}"/>
+  <template is="{{ haveMoreStyle ?'textStyle':'text'}}" data="{{ scienceDetail }}"/>
+  <template is="lookOriginal" data="{{ scienceDetail,scienceDetailsDisabled }}"/>
+  <block wx:if="{{ scienceDetail.write.length > 0 }}">
+    <view class="allTextEmptyViewBgcGray"></view>
+    <template is="authorWrite" data="{{ scienceDetail }}"/>
+  </block>
+  <block wx:if="{{ scienceDetail.audit.length > 0 }}">
+    <view class="allTextEmptyViewBgcGray"></view>
+    <template is="authorAudit" data="{{ scienceDetail }}"/>
+  </block>
+</template>
+
+<template name="bingImgText">
+  <template is="headImg" data="{{ scienceDetail }}"/>
+  <template is="{{ haveMoreStyle ?'titleStyle':'title'}}" data="{{ scienceDetail }}"/>
+  <template is="doctor" data="{{ scienceDetail }}"/>
+  <view class="bingImgTextEmptyView"></view>
+  <template is="{{ haveMoreStyle ?'textStyle':'text'}}" data="{{ scienceDetail }}"/>
+  <template is="lookOriginal" data="{{ scienceDetail,scienceDetailsDisabled }}"/>
+  <block wx:if="{{ scienceDetail.write.length > 0 }}">
+    <view class="bingDoctorEmptyViewBgcGray"></view>
+    <template is="authorWrite" data="{{ scienceDetail }}"/>
+  </block>
+  <block wx:if="{{ scienceDetail.audit.length > 0 }}">
+    <view class="bingDoctorEmptyViewBgcGray"></view>
+    <template is="authorAudit" data="{{ scienceDetail }}"/>
+  </block>
+</template>
+
+<template name="bingText">
+  <template is="{{ haveMoreStyle ?'titleStyle':'title'}}" data="{{ scienceDetail }}"/>
+  <template is="describe" data="{{ scienceDetail }}"/>
+  <template is="{{ haveMoreStyle ?'textStyle':'text'}}" data="{{ scienceDetail }}"/>
+  <template is="lookOriginal" data="{{ scienceDetail,scienceDetailsDisabled }}"/>
+  <block wx:if="{{ scienceDetail.write.length > 0 }}">
+    <view class="bingDoctorEmptyViewBgcGray"></view>
+    <template is="authorWrite" data="{{ scienceDetail }}"/>
+  </block>
+  <block wx:if="{{ scienceDetail.audit.length > 0 }}">
+    <view class="bingDoctorEmptyViewBgcGray"></view>
+    <template is="authorAudit" data="{{ scienceDetail }}"/>
+  </block>
+</template>
+
+<template name="bingDoctor">
+  <view class="bingTextEmptyView"></view>
+  <template is="doctor" data="{{ scienceDetail }}"/>
+  <view class="bingDoctorEmptyViewBgcWhite"></view>
+  <block wx:if="{{ scienceDetail.doctor.good != '' }}">
+    <view class="bingDoctorEmptyViewBgcGray"></view>
+    <template is="doctorGood_describe" data="{{ scienceDetail }}" />
+  </block>
+  <block wx:if="{{ scienceDetail.textArr.length > 0 }}">
+    <block wx:if="{{ scienceDetail.textArr[0].content !== '' }}">
+      <template is="text" data="{{ scienceDetail }}"/>
+    </block>
+  </block>
+  <!--<template is="lookOriginal" data="{{ scienceDetail,scienceDetailsDisabled }}"/>-->
+  <block wx:if="{{ scienceDetail.write.length > 0 }}">
+    <view class="bingDoctorEmptyViewBgcGray"></view>
+    <template is="authorWrite" data="{{ scienceDetail }}"/>
+  </block>
+  <block wx:if="{{ scienceDetail.audit.length > 0 }}">
+    <view class="bingDoctorEmptyViewBgcGray"></view>
+    <template is="authorAudit" data="{{ scienceDetail }}"/>
+  </block>
+</template>
+
+<template name="hospitalImg">
+  <template is="headImg" data="{{ scienceDetail }}"/>
+  <template is="title" data="{{ scienceDetail }}"/>
+  <template is="hospital" data="{{ scienceDetail }}"/>
+  <template is="hospitalOther" data="{{ scienceDetail }}"/>
+</template>
+
+<template name="hospitalText">
+  <template is="title" data="{{ scienceDetail }}"/>
+  <template is="hospital" data="{{ scienceDetail }}"/>
+  <template is="hospitalOther" data="{{ scienceDetail }}"/>
+</template>
+
+<template name="chooseScienceDetailTemplate">
+  <template is="{{ scienceDetail.dataType }}" data="{{ scienceDetail,scienceDetailsDisabled,haveMoreStyle }}"></template>
+</template>

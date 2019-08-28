@@ -1,0 +1,16 @@
+
+
+@import "../../template/scienceDetailTemplate/scienceDetailTemplate.wxss";
+@import "../../template/commonTemplate/commonTemplate.wxss";
+
+page{
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 100%;
+  overflow-x: hidden;
+}
+.recommendedArr{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

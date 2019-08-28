@@ -1,0 +1,7 @@
+
+
+@import "../../template/queryTemplate/queryTemplate.wxss";
+@import "../../template/commonTemplate/commonTemplate.wxss";
+page{
+  background-color: #f8f9fb;
+}

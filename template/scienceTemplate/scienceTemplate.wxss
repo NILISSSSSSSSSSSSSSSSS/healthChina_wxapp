@@ -1,0 +1,360 @@
+
+
+.recommendedButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #e8e8e8;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #ffffff;
+  border-radius: 0;
+}
+.recommendedButton::after{
+  border: none;
+}
+.recommendedButtonCont{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+}
+.recommendedButtonContTop{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.recommendedButtonLogoImgView{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50rpx;
+  height: 50rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 100%;
+  margin-right: 10rpx;
+}
+.recommendedButtonLogoImg{
+  width:100%;
+  height: 100%;
+  margin: auto;
+  flex-shrink: 0;
+}
+.recommendedButtonTitle{
+  font-size: 28rpx;
+  color: #000000;
+  line-height: 50rpx;
+}
+.recommendedButtonSubTitle{
+  line-height: 43rpx;
+  font-size: 34rpx;
+  text-align: left;
+  width:100%;
+  color: #000000;
+}
+.recommendedButtonImg{
+  width: 165rpx;
+  height: 145rpx;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+.onReachBottomView{
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  background-color: #ffffff;
+  font-size: 30rpx;
+  color: #999999;
+}
+
+.recommendedButton[disabled][type="default"], .recommendedButton[disabled]:not([type]) {
+  color: inherit;
+  background-color :#ffffff;
+}
+.searchScienceBtn[disabled][type="default"], .searchScienceBtn[disabled]:not([type]) {
+  color: inherit;
+  background-color :#ffffff;
+}
+
+.moreTextHide{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  box-orient:vertical;
+  line-clamp:2;
+  text-align: left;
+}
+.oneTextHide{
+  text-align: left;
+  max-width: 12em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.oneDescribeTextHide{
+  text-align: left;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.hospitalTextOneTextHide{
+  text-align: left;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.describeBtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  padding: 40rpx 0 30rpx;
+  margin: 0;
+  border-bottom: 1rpx solid #e8e8e8;
+  box-sizing: border-box;
+  border-radius: 0;
+  text-align: left;
+}
+.describeBtn::after{
+  border: none;
+}
+.describeTitle{
+  line-height: 50rpx;
+  font-size: 32rpx;
+  color: #000000;
+}
+.describeContent{
+  margin-top: 4rpx;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  color: #666666;
+}
+.describeLabelView{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 15rpx 0 0;
+}
+.describeLabel{
+  height: 35rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  border-radius: 35rpx;
+  border: 1rpx solid #e8e8e8;
+  color: #999999;
+  line-height: 35rpx;
+  font-size: 24rpx;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align: center;
+}
+
+.diseaseTextLabelView{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15rpx 0 0;
+}
+.diseaseTextAuthor{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.diseaseTextAuthorName{
+  height: 35rpx;
+  line-height: 35rpx;
+  font-size: 24rpx;
+  color: #333333;
+}
+.diseaseTextAuthorPosition{
+  height: 35rpx;
+  line-height: 35rpx;
+  font-size: 24rpx;
+  color: #999999;
+  margin-left: 15rpx;
+}
+
+.diseaseImgBtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  padding: 40rpx 0 30rpx;
+  margin: 0;
+  border-bottom: 1rpx solid #e8e8e8;
+  box-sizing: border-box;
+  border-radius: 0;
+  text-align: left;
+}
+.diseaseImgBtn::after{
+  border: none;
+}
+.diseaseImgCont{
+  width: 200rpx;
+  height: 180rpx;
+  margin: 0 36rpx 0 0;
+  flex-shrink: 0;
+}
+.diseaseImgText{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.diseaseImgOneTextHide{
+  text-align: left;
+  max-width: 47%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.doctorHeaderImgView{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 25rpx 0 0;
+  flex-shrink: 0;
+  border-radius: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.doctorHeaderImg{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+.doctorText{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.doctorTextName{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.doctorAddressGoodAt{
+  color: #a9a9a9!important;
+}
+.doctorAddress{
+  color: #666666;
+  font-size: 28rpx;
+  line-height: 35rpx;
+  text-align: left;
+  max-width: 18em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.doctorTitle{
+  line-height: 40rpx;
+  font-size: 32rpx;
+  color: #000000;
+  margin-bottom: 6rpx;
+}
+.doctorPosition{
+  margin-left: 18rpx;
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 40rpx;
+}
+
+.hospitalTextBtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 30rpx 0 30rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+  box-sizing: border-box;
+  border-radius: 0;
+  text-align: left;
+}
+.hospitalTextBtn::after{
+  border: none;
+}
+.hospitalLevelCont{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 46rpx;
+}
+.hospitalLevelImg{
+  width: 25rpx;
+  height: 25rpx;
+  margin: auto 10rpx auto 0;
+}
+.hospitalLevel{
+  line-height: 46rpx;
+  font-size: 24rpx;
+  color: #666666;
+}
+.hospitalAddress{
+  line-height: 30rpx;
+  font-size: 28rpx;
+  color: #666666;
+  margin-top: 20rpx;
+}
+.hospitalImg{
+  width: 204rpx;
+  height: 180rpx;
+  margin: 0 23rpx 0 0;
+  flex-shrink: 0;
+}
+.hospitalImgBtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 40rpx 0 30rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+  box-sizing: border-box;
+  border-radius: 0;
+  text-align: left;
+}
+.hospitalImgBtn::after{
+  border: none;
+}
+
+.notContView{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background-color: #ffffff;
+  /*position: fixed;*/
+  /*top: 45%;*/
+  /*left: 47%;*/
+  /*transform: translate(-50%,-50%);*/
+  height: 250rpx;
+  text-align: center;
+  margin-top: 200rpx;
+}
+.notContImg{
+  width: 216rpx;
+  height: 131rpx;
+  margin: 0 auto;
+}
+.notContText{
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #cbd2d7;
+  margin-top: 27rpx;
+  transform: translate(30rpx,0);
+}

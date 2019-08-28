@@ -1,0 +1,16 @@
+
+
+@import "../../template/newButtonTemplate/newButtonTemplate.wxss";
+.scienceButtonBottomEmptyGrayView{
+  height: 20rpx;
+  background-color: #FFFFFF;
+  width: 200%;
+}
+page{
+  color: #ffffff;
+  width: 100%;
+}
+.serviceButtonScrollView{
+  width: 100%;
+  height: 100%;
+}

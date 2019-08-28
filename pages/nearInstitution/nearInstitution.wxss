@@ -1,0 +1,151 @@
+
+
+@import "../../template/commonTemplate/commonTemplate.wxss";
+@import "../../template/commonTemplate/commonTemplate.wxss";
+
+page{
+  background-color: #FFFFFF;
+}
+.nearInstitutionPosition{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  box-sizing: border-box;
+  background-color: #d1edf9;
+  color: #1ba5e3;
+  font-size: 28rpx;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 30rpx;
+  border-radius: 0;
+}
+.nearInstitutionPosition::after{
+  border: none;
+}
+.nearInstitutionPositionView{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 100%;
+}
+.toMoreImg{
+  width: 18rpx;
+  height: 27rpx;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+.nearInstitutionPositionViewLeft{
+  flex-shrink: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.currentPositionText{
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: auto 0 auto 25rpx;
+  text-align: left;
+  max-width: 74%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.nearInstitutionCont{
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.nearInstitutionButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 50rpx 0;
+  box-sizing: border-box;
+  border-radius: 0;
+  border-bottom: 1rpx solid #e8e8e8;
+  background-color: #FFFFFF;
+  margin: 0;
+}
+.nearInstitutionButton::after{
+  border: none;
+}
+.nearInstitutionButtonImg{
+  margin: auto 30rpx auto 0;
+  width: 180rpx;
+  height: 150rpx;
+  flex-shrink: 0;
+}
+.nearInstitutionButtonTextCont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.nearInstitutionButtonTitle{
+  text-align: left;
+  color: #000000;
+  font-size: 30rpx;
+  line-height: 44rpx;
+  margin-bottom: 23.5rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  box-orient:vertical;
+  line-clamp:2;
+}
+.nearInstitutionButtonDescribe{
+  display: flex;
+  flex-direction: row;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+.distanceIcon{
+  width: 20rpx;
+  height: 27rpx;
+  margin: auto 8rpx auto  0;
+  flex-shrink: 0;
+}
+.distanceText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #999999;
+  font-size: 26rpx;
+  line-height: 30rpx;
+  height: 30rpx;
+  margin: auto 40rpx auto 0;
+}
+.zanIcon{
+  width: 28rpx;
+  height: 27rpx;
+  margin: auto 8rpx auto 0;
+  flex-shrink: 0;
+}
+.zanNum{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #999999;
+  font-size: 26rpx;
+  line-height: 30rpx;
+  height: 30rpx;
+  margin: auto 0;
+}
+
+.nearInstitutionButton[disabled][type="default"], .nearInstitutionButton[disabled]:not([type]) {
+  color: inherit;
+  background-color :#ffffff;
+}
+.nearInstitutionPosition[disabled][type="default"], .nearInstitutionPosition[disabled]:not([type]) {
+  color: #1ba5e3;
+  background-color :#d1edf9;
+}

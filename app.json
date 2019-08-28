@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/information/information",
+    "pages/science/science",
+    "pages/service/service",
+    "pages/scienceDetails/scienceDetails",
+    "pages/newsDetail/newsDetail",
+    "pages/nearInstitution/nearInstitution",
+    "pages/lookOriginal/lookOriginal",
+    "pages/institutionDetail/institutionDetail",
+    "pages/teamDoctorList/teamDoctorList",
+    "pages/search/search",
+    "pages/zhengWuSearch/zhengWuSearch",
+    "pages/zhengWuLook/zhengWuLook",
+    "pages/searchResult/searchResult"
+  ],
+  "debug": true,
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#1ba5e3",
+    "list": [{
+      "pagePath": "pages/information/information",
+      "text": "首页",
+      "iconPath": "image/icon/sy.png",
+      "selectedIconPath": "image/icon/syh.png"
+    },
+      {
+        "pagePath": "pages/science/science",
+        "text": "科普",
+        "iconPath": "image/icon/kp.png",
+        "selectedIconPath": "image/icon/kph.png"
+      },
+      {
+        "pagePath": "pages/service/service",
+        "text": "发现",
+        "iconPath": "image/icon/fx.png",
+        "selectedIconPath": "image/icon/fxh.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,239 @@
+
+
+@import "../../template/commonTemplate/commonTemplate.wxss";
+
+page{
+  background-color: #ffffff;
+}
+.searchHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 40rpx 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.searchHeaderInput{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 42rpx;
+  border: 1rpx solid rgb(233,233,233);
+  font-size: 30rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx 0 34rpx;
+  width: 100%;
+  box-shadow: 2rpx 2rpx 2rpx rgb(225,225,225);
+}
+.deleteSearchValueButton{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  border-radius: 0 35rpx 35rpx 0;
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 70rpx;
+  text-align: center;
+  padding: 0;
+  margin: auto 0;
+  background-color: #ffffff;
+}
+.deleteSearchValueButton::after{
+  border: none;
+}
+.deleteSearchValueImg{
+  width: 40rpx;
+  height: 40rpx;
+  margin: auto;
+}
+.searchIcon{
+  margin: auto 0;
+  width: 34rpx;
+  height: 33rpx;
+  flex-shrink: 0;
+}
+.inputPlaceholder{
+  color: #999999;
+}
+.searchInput{
+  height: 40rpx;
+  line-height: 40rpx;
+  margin: auto 0 auto 20rpx;
+  font-size: 30rpx;
+  color: rgb(51,51,51);
+  width: 100%;
+}
+.cancelButton{
+  font-size: 30rpx;
+  color: rgb(102,102,102);
+  padding: 0;
+  margin: auto 0 auto 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 0;
+  flex-shrink: 1;
+  width: 100rpx;
+  text-align: right;
+}
+.cancelButton::after{
+  border: none;
+}
+.cancelButton[disabled][type="default"], .cancelButton[disabled]:not([type]) {
+  color: rgb(102,102,102);
+  background-color :#ffffff;
+}
+
+.searchCont{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 0;
+  box-sizing: border-box;
+}
+.historyAndRemove{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  color: rgb(51,51,51);
+  padding: 0 30rpx 0 0;
+  box-sizing: border-box;
+}
+.historyText{
+  text-align: left;
+  font-weight: bold;
+}
+.removeRecord{
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: right;
+  color: rgb(27,165,227);
+  font-size: 28rpx;
+  background-color: #ffffff;
+  padding: 0;
+  margin: auto 0;
+  border-radius: 0;
+  font-weight: bold;
+}
+.removeRecord::after{
+  border: none;
+}
+.removeRecord[disabled][type="default"], .removeRecord[disabled]:not([type]) {
+  color: rgb(27,165,227);
+  background-color :#ffffff;
+}
+
+
+.historyRecordScrollView{
+  width: 100%;
+  background-color: #ffffff;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.historyRecordButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 30rpx;
+  margin: 0;
+  color: rgb(102,102,102);
+  font-size: 28rpx;
+  border-radius: 0;
+  background-color: #ffffff;
+  text-align: left;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  border-bottom: 1rpx solid #e9e9e9;
+}
+.historyRecordButton::after{
+  border: none;
+}
+.historyRecordButton[disabled][type="default"], .historyRecordButton[disabled]:not([type]) {
+  color: rgb(102,102,102);
+  background-color :#ffffff;
+}
+.historyRecordText{
+  text-align: center;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.emptyHotSearchArrView{
+  height: 30rpx;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.hotSearchCont{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.hotSearchTitleView{
+  display: flex;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  color: rgb(51,51,51);
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.historyImg{
+  width: 34rpx;
+  height: 34rpx;
+  margin: auto 6.5rpx auto 0;
+}
+.hotSearchTitleImg{
+  width: 47rpx;
+  height: 47rpx;
+  margin: auto 0 auto -5rpx;
+}
+.hotSearchTitleText{
+  margin-left: 5rpx;
+}
+.hotSearchShow{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  margin-top: 10rpx;
+}
+.hotSearchButton{
+  padding: 23rpx 30rpx;
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 0;
+  color: rgb(102,102,102);
+  font-size: 28rpx;
+  text-align: justify;
+  background-color: #ffffff;
+  line-height: 40rpx;
+  border-bottom: 1rpx solid #e9e9e9;
+  width: 100%;
+}
+.hotSearchButton::after{
+  border: none;
+}
+.hotSearchButton[disabled][type="default"], .hotSearchButton[disabled]:not([type]) {
+  color: rgb(102,102,102);
+  background-color :#ffffff;
+}

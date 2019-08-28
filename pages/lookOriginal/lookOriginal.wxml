@@ -1,0 +1,8 @@
+
+
+<import src="../../template/scienceDetailTemplate/scienceDetailTemplate.wxml"></import>
+<view id="TopLine"></view>
+<view class="recommendedArr">
+  <template is="lookOriginalAllText" data="{{ scienceDetail,scienceDetailsDisabled,haveMoreStyle }}"></template>
+</view>
+

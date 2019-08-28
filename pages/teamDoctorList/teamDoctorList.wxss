@@ -1,0 +1,97 @@
+
+
+@import "../../template/commonTemplate/commonTemplate.wxss";
+
+page{
+  background-color: #FFFFFF;
+}
+.teamDoctorListView{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.headImgView{
+  width: 140rpx;
+  height: 140rpx;
+  box-sizing: border-box;
+  border-radius: 100%;
+  margin: auto 28rpx auto 0;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.headImg{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  flex-shrink: 0;
+}
+.doctorInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.doctorName{
+  color: #000000;
+  font-size: 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  display: flex;
+}
+.doctorPosition{
+  color: #999999;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  height: 40rpx;
+}
+.doctorZanView{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.icon_zan_docotorList{
+  width: 28rpx;
+  height: 27rpx;
+  flex-shrink: 0;
+  margin: auto 10rpx auto 0;
+}
+.doctorZanNum{
+  color: #999999;
+  font-size: 26rpx;
+  text-align: left;
+}
+
+.noneImgView{
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.noneImg{
+  width: 135rpx;
+  height: 135rpx;
+  margin: 0 auto 0;
+  flex-shrink: 0;
+  transform: translate(0,-100rpx);
+}
+.noneText{
+  color: #cbd2d7;
+  font-size: 28rpx;
+  text-align: center;
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  transform: translate(0,-80rpx);
+}

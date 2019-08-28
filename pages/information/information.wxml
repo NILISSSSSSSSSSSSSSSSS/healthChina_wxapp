@@ -1,0 +1,33 @@
+
+
+<import src="../../template/informationTemplate/informationTemplate.wxml"></import>
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<import src="../../template/newButtonTemplate/newButtonTemplate.wxml"></import>
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<form bindsubmit="informationButton" report-submit="true">
+  <scroll-view scroll-y="true" enable-back-to-top="true" class="informationArr" wx:if="{{ !isLoading }}">
+    <template is="indexQueryButton" data="{{ queryObj,currentClickIndex,inputButtonObj,newButtonDisabled }}"></template>
+    <view class="swiperCont">
+      <swiper bindchange="swiperChange" autoplay="true" indicator-dots="false" circular="true" class="swiper">
+        <block wx:for="{{ swiperImgArr }}" wx:key="index">
+          <swiper-item>
+            <button class="swiperButton" formType="submit" data-event="banner" data-index="{{ index }}" hover-class="hoverClass" disabled="{{ informationDisabled }}">
+              <image  mode="aspectFill" lazy-load="true" src="{{ item.img }}" class="swiperImg"/>
+            </button>
+            <view class="swiperSubtitle">{{ item.subtitle }}</view>
+            <!--<image src="../../image/icon/zhezhao.png" class="swiperSubtitleBg"></image>-->
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="swiperPage" wx:if="{{ swiperImgArr.length > 0 }}">{{swiperCurrent}}/{{swiperImgArr.length}}</view>
+    </view>
+    <template is="oneIndexSubTitle" data="{{ oneSubTitleText }}"></template>
+    <view class="informationNewsShow">
+      <template is="information" data="{{ informationArr,informationDisabled }}"></template>
+      <template is="onReachBottomView" data="{{ arriveBottom }}"></template>
+      <template is="notMoreCont" data="{{ notMoreCont }}"></template>
+    </view>
+  </scroll-view>
+
+</form>

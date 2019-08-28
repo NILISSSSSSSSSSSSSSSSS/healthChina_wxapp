@@ -1,0 +1,21 @@
+
+
+<import src="../../template/queryTemplate/queryTemplate.wxml"></import>
+<form report-submit="true" bindsubmit="submitButton">
+  <template is="query" data="{{ queryObj,maxLengthWidth,newButtonDisabled,otherQueryObj }}"></template>
+  <block wx:if="{{ isShowWarnDescribe }}">
+    <view class="showWarnDescribeBorderTopView">
+      <view class="showWarnDescribeBorderTop"></view>
+    </view>
+    <template is="warnDescribe" data="{{ warnDescribeText }}"></template>
+    <view style="height:42rpx;"></view>
+  </block>
+  <template is="instructionsTc" data="{{ newButtonDisabled,instructionsArr,firstEnter,showTcMaxHeight }}"></template>
+  <template is="hospitalLevelQueryDescribe" data="{{ instructionsArr }}"></template>
+  <view style="height:90rpx;"></view>
+  <template is="queryButton" data=""></template>
+</form>
+
+
+
+

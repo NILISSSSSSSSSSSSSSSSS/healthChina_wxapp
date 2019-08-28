@@ -1,0 +1,662 @@
+
+
+.newSubTitleTemplate{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #f8f9fb;
+  font-size: 28rpx;
+  color: rgb(153,153,153);
+}
+.groupImgTemplate{
+  width: 68rpx;
+  height: 6rpx;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+.newSubTitleTextTemplate{
+  font-size: 28rpx;
+  color: rgb(153,153,153);
+  margin: auto 20rpx;
+}
+
+.queryTemplateFlexColumn{
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.queryTemplateFlexTitle{
+  border-bottom: 1rpx solid #e8e8e8;
+  font-size: 40rpx;
+  color: #000000;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: left;
+}
+.queryTemplateFlexColumnCont{
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.queryTemplateFlexRow{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #e8e8e8;
+  height: 90rpx;
+  line-height: 90rpx;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+.queryTemplateFlexRowText{
+  text-align: left;
+  font-size: 30rpx;
+  color: rgb(51,51,51);
+  margin-right: 40rpx;
+  flex-shrink: 0;
+}
+.placeholder{
+  color: rgb(153,153,153);
+  font-size: 28rpx;
+  text-align: right;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.inputTemplate{
+  line-height: 90rpx;
+  height: 90rpx;
+  color: rgb(51,51,51);
+  font-size: 28rpx;
+  width: 100%;
+  flex-shrink: 1;
+  text-align: right;
+}
+.adCodePickerInputTemplate{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.flexEndInputTemplate{
+  text-align: right;
+  color: rgb(51,51,51);
+  font-size: 28rpx;
+}
+
+.querySearchImgTemplate{
+  width: 34rpx;
+  height: 33rpx;
+  flex-shrink: 0;
+  margin: auto 0;
+  transform: translate(0,-1rpx);
+}
+.querySearchTextTemplate{
+  color: #ffffff;
+  font-size: 30rpx;
+  margin-left: 5rpx;
+}
+.queryButtonTemplate{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  background-color: #1ba5e3;
+  color: #ffffff;
+  font-size: 30rpx;
+  border-radius: 0;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.queryButtonTemplate::after{
+  border: none;
+}
+.queryButtonTemplate[disabled][type="default"], .queryButtonTemplate[disabled]:not([type]) {
+  color: #ffffff;
+  background-color :#1ba5e3;
+}
+
+.queryDescribeView{
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx 30rpx 30rpx;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+.queryDescribeTitle{
+  display: block;
+  font-size: 26rpx;
+  color: #999999;
+  line-height: 55rpx;
+  text-align: left;
+}
+.queryDescribeCont{
+  text-indent: 1em;
+  display: block;
+  font-size: 26rpx;
+  line-height: 55rpx;
+  text-align: left;
+  color: #999999;
+}
+
+.instructionsTcTemplate{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333333;
+  /*opacity: 0.8;*/
+  z-index: 50;
+  box-sizing: border-box;
+}
+.instructionsTcTemplateView{
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 40rpx;
+  right: 40rpx;
+  transform: translate(0,-50%);
+  box-sizing: border-box;
+  /*padding: 0 60rpx;*/
+  width: auto;
+  border-radius: 20rpx;
+}
+.instructionsTcTemplateTitle{
+  height: 122rpx;
+  line-height: 122rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #f8f9fb;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.bitmap2ImgTemplate{
+  width: 67rpx;
+  height: 67rpx;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+.instructionsTcTemplateTitleText{
+  color: rgb(27,165,227);
+  font-size: 40rpx;
+  margin-left: 18rpx;
+  text-align: left;
+}
+.instructionsTcTemplateContFlexColumn{
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx 40rpx 0;
+  box-sizing: border-box;
+  position: relative;
+}
+.absoluteLineTemplate{
+  position: absolute;
+  left: 44.5rpx;
+  top: 50rpx;
+  bottom: 180rpx;
+  width: 1rpx;
+  background-color: #e7e7e7;
+}
+.instructionsTcDescribeTitle{
+  font-size: 28rpx;
+  color: rgb(51,51,51);
+  line-height: 40rpx;
+  display: block;
+  text-align: left;
+  margin: 8rpx 0;
+}
+.instructionsTcDescribeSubTitle{
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 50rpx;
+  display: block;
+  text-align: left;
+  padding-left: 42rpx;
+  box-sizing: border-box;
+}
+.instructionsTcDescribeColorTitle{
+  font-size: 28rpx;
+  color: rgb(59,153,252);
+  line-height: 40rpx;
+  margin: 10rpx 0;
+  display: block;
+  text-align: left;
+  padding-left: 42rpx;
+  box-sizing: border-box;
+}
+.instructionsTcDescribeCont{
+  font-size: 30rpx;
+  color: #666666;
+  line-height: 40rpx;
+  margin: 10rpx 0;
+  text-align: left;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 50%;
+  flex-shrink: 0;
+}
+.circlePointTemplateFlexRow{
+  display: flex;
+}
+.circlePointTemplate{
+  margin: 20rpx 30rpx auto 0;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 100%;
+  background-color: #1ba5e3;
+  flex-shrink: 0;
+  z-index: 300;
+}
+.instructionsTcIKnowView{
+  margin: 36rpx 0 40rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.instructionsTcIKnow{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 44rpx;
+  color: rgb(255,255,255);
+  font-size: 36rpx;
+  background-color: #1ba5e3;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.instructionsTcIKnow::after{
+  border: none;
+}
+.instructionsTcIKnow[disabled][type="default"], .instructionsTcIKnow[disabled]:not([type]) {
+  color: rgb(255,255,255);
+  background-color :#1ba5e3;
+}
+
+
+.warnDescribe{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  margin-top: 23rpx;
+}
+.warnDescribeStart{
+  color: rgb(255,98,98);
+  font-size: 26rpx;
+  height: 100%;
+  margin-right: 10rpx;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.warnDescribeText{
+  line-height: 40rpx;
+  text-align: left;
+  color: rgb(255,98,98);
+  font-size: 26rpx;
+  width: 100%;
+}
+
+.hospitalLevelQueryResult{
+  /*padding: 30rpx;*/
+  width: 100%;
+  box-sizing: border-box;
+}
+.hospitalLevelQueryResultCont{
+  display: flex;
+  flex-direction: column;
+  /*background-color: #ffffff;*/
+  width: 100%;
+  /*border-top: 1rpx solid #e8e8e8;*/
+  /*border-left: 1rpx solid #e8e8e8;*/
+  /*border-right: 1rpx solid #e8e8e8;*/
+  /*border-radius: 6rpx;*/
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.cityNameTemplate{
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  background-color: #1ba5e3;
+  color: #ffffff;
+  font-size: 34rpx;
+  text-align: left;
+  height: 90rpx;
+  line-height: 90rpx;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 0;
+}
+.cityNameTemplate::after{
+  border: none;
+}
+.cityNameTemplateFlex{
+  display: flex;
+}
+.cityNameTemplateImg{
+  width: 29rpx;
+  height: 38rpx;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+.cityNameTemplateText{
+  margin-left: 10rpx;
+}
+.moreImgTemplate{
+  width: 36rpx;
+  height: 18rpx;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+.lessImgTemplate{
+  width: 18rpx;
+  height: 36rpx;
+  margin: auto 0;
+  flex-shrink: 0;
+}
+.cityNameTemplateCont{
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+  background-color: #ffffff;
+}
+.cityNameTemplateContView{
+  line-height: 45rpx;
+  font-size: 30rpx;
+  color: rgb(51,51,51);
+  padding: 22rpx 0;
+  border-bottom: 1rpx solid #e9e9e9;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.cityNameTemplateContViewTextShow{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.cityNameTemplateContText{
+  flex-shrink: 0;
+  line-height: 45rpx;
+  text-align: left;
+  margin-right: 22rpx;
+  color: rgb(51,51,51);
+  font-size: 30rpx;
+}
+.lineGrayOneHeightTemplate{
+  width: 100%;
+  height: 1rpx;
+  background-color: #e9e9e9;
+}
+.thirtyHeightGrayTemplate{
+  height: 30rpx;
+  width: 100%;
+  background-color: #f8f9fb;
+}
+
+.emptyQueryResult{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 110rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+.emptyQueryResultImg{
+  width: 122rpx;
+  height: 140rpx;
+  margin: 0 auto;
+}
+.emptyQueryResultText{
+  width: 100%;
+  text-align: center;
+  line-height: 40rpx;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: rgb(153,153,153);
+}
+
+.practiceDoctorQueryResult{
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx 30rpx 10rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+.practiceDoctorQueryResultView{
+  border: 1rpx solid #e8e8e8;
+  background-color: #ffffff;
+  position: relative;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  color: #84c5fd;
+  border-radius: 6rpx;
+  text-align: left;
+}
+.practiceDoctorQueryResultView::after{
+  border: none;
+}
+.practiceDoctorQueryResultView[disabled][type="default"], .practiceDoctorQueryResultView[disabled]:not([type]) {
+  color: #1ba5e3;
+  background-color :#ffffff;
+}
+.getDetailsTemplateText{
+  background-color: #ffffff;
+  font-size: 30rpx;
+  color: #1ba5e3;
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.practiceDoctorTcVIew{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.practiceDoctorTcVIewCont{
+  display: flex;
+  flex-direction: column;
+}
+.practiceDoctorTcVIewContTemplateSHow{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 40rpx 0;
+  box-sizing: border-box;
+}
+.returnQueryResult{
+  background-color: #f8f9fb;
+  font-size: 30rpx;
+  color: #1ba5e3;
+  position: absolute;
+  right: 0;
+  top: 43rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 100rpx;
+  text-align: right;
+  border: none;
+  border-radius: 0;
+  padding: 0 40rpx 0 0;
+}
+.returnQueryResult::after{
+  border: none;
+}
+.returnQueryResult[disabled][type="default"], .returnQueryResult[disabled]:not([type]) {
+  color: #1ba5e3;
+  background-color :#f8f9fb;
+}
+
+.lookListScrollViewTemplate{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 0 30rpx 30rpx;
+  box-sizing: border-box;
+}
+.medicinesListTemplate{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  /*border-top: 1rpx solid #e8e8e8;*/
+  /*border-left: 1rpx solid #e8e8e8;*/
+  /*border-right: 1rpx solid #e8e8e8;*/
+  border-radius: 0;
+  background-color: #ffffff;
+  line-height: normal;
+  width: 100%;
+  height: auto;
+}
+.medicinesListTemplate::after{
+  border: none;
+}
+.medicinesListTemplate[disabled][type="default"], .medicinesListTemplate[disabled]:not([type]) {
+  color: inherit;
+  background-color :#ffffff;
+}
+.medicinesListTemplateImg{
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.assistedReproductiveOrgHeader{
+  padding: 37rpx 30rpx 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+.assistedReproductiveOrgHeaderTitle{
+  color: rgb(51,51,51);
+  font-size: 38rpx;
+  line-height: 56rpx;
+  text-align: left;
+  margin-bottom: 16rpx;
+  font-weight: bold;
+}
+.assistedReproductiveOrgHeaderTime{
+  line-height: 40rpx;
+  font-size: 26rpx;
+  color: rgb(102,102,102);
+  text-align: left;
+}
+.assistedReproductiveOrgContSubtitle{
+  color: rgb(51,51,51);
+  font-size: 30rpx;
+  text-align: left;
+  line-height: 45rpx;
+  margin: 38rpx 0 34rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.assistedReproductiveOrgContAsOfTime{
+  color: #333333;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 45rpx;
+  margin-bottom: 20rpx;
+}
+.assistedReproductiveOrgContOneTitle{
+  color: rgb(51,51,51);
+  font-size: 30rpx;
+  text-align: left;
+  line-height: 45rpx;
+  margin: 38rpx 0 34rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.lookListArrBaiBac{
+  height: 2rpx;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.instructionsArrFlexRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.queryDescribeTitleFlexRow{
+  width: 50%;
+  text-align: left;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+}
+.queryDescribeTemplateColor{
+  font-size: 26rpx !important;
+  color: rgb(153,153,153) !important;
+}
+
+.emptyLookResult{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.currentPageIndex{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 40rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  line-height: 40rpx;
+  color: rgb(255,255,255);
+  background-color: #bfbfbf;
+  border-radius: 20rpx;
+  position: fixed;
+  right: 37rpx;
+  top: 37rpx;
+  z-index: 100;
+  font-size: 26rpx;
+}

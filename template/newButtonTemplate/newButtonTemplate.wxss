@@ -1,0 +1,468 @@
+
+
+.indexQueryButtonModelTemplate{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 100%;
+}
+.indexQueryButtonTitleTemplate{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid #eeeeee;
+  height: 88rpx;
+  box-sizing: border-box;
+}
+.indexQueryButtonTitleButtonTemplate{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-align: center;
+  overflow: visible;
+}
+.indexQueryButtonTitleButtonTemplate::after{
+  border: none;
+}
+.indexQueryButtonTitleButtonTemplate[disabled][type="default"], .indexQueryButtonTitleButtonTemplate[disabled]:not([type]) {
+  color: inherit;
+  background-color :#ffffff;
+}
+.zhengWuButtonSelected{
+  width: 145rpx;
+  height: 37rpx;
+  margin: auto;
+}
+.zhengWuButtonNotSelect{
+  width: 122rpx;
+  height: 36rpx;
+  margin: auto;
+}
+.jiBingButtonNotSelect{
+  width: 122rpx;
+  height: 36rpx;
+  margin: auto;
+}
+.jiBingButtonSelected{
+  width: 141rpx;
+  height: 39rpx;
+  margin: auto;
+}
+.indexQueryButtonTitleButtonColorTemplate{
+  border-bottom: 6rpx solid #1ba5e3;
+}
+.indexQueryButtonTitleButtonColorTemplateKuai{
+  position: absolute;
+  top:78rpx;
+  left:50%;
+  margin-left: -7.5rpx;
+  width: 15rpx;
+  height: 15rpx;
+  transform: rotate(45deg);
+  background-color: #1ba5e3;
+  border-radius: 40rpx 0 0 0;
+  z-index: 100;
+}
+
+.indexQueryButtonContSixTemplate{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.indexQueryButtonContButtonTemplate{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 0;
+  font-size: 30rpx;
+  color: rgb(51,51,51);
+  margin: 0;
+  padding: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  width: 50%;
+}
+.indexQueryButtonContButtonTemplate::after{
+  border: none;
+}
+.indexQueryButtonContButtonTemplate[disabled][type="default"], .queryContButtonTemplate[disabled]:not([type]) {
+  color: rgb(51,51,51);
+  background-color :#ffffff;
+}
+.indexQueryButtonContButtonTemplateTextView{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  height: 43rpx;
+  line-height: 43rpx;
+  margin: auto 0;
+}
+.indexQueryButtonContButtonTemplateIconText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 2rpx;
+  line-height: 32rpx;
+  font-size: 24rpx;
+  text-align: center;
+  margin: auto 20rpx auto 0;
+}
+.indexQueryButtonContButtonTemplateText{
+  color: rgb(51,51,51);
+  font-size: 30rpx;
+}
+
+.indexInputModelTemplate{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+.indexInputButtonModelTemplate{
+  height: 84rpx;
+  color: rgb(153,153,153);
+  width: 100%;
+  border: 1rpx solid rgb(233,233,233);
+  border-radius: 42rpx;
+  background-color: #ffffff;
+  line-height: 84rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin: 64rpx 0 13rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  box-shadow: 2rpx 2rpx 2rpx rgb(225,225,225);
+}
+.indexInputButtonModelTemplate::after{
+  border: none;
+}
+.indexInputButtonModelTemplate[disabled][type="default"], .indexInputButtonModelTemplate[disabled]:not([type]) {
+  color: rgb(153,153,153);
+  background-color :#ffffff;
+}
+.indexInputButtonModelImgTemplate{
+  width: 34rpx;
+  height: 33rpx;
+  margin: auto 14rpx auto 0;
+  flex-shrink: 0;
+}
+.indexInputButtonModelViewTemplate{
+  color: rgb(153,153,153);
+  font-size: 30rpx;
+  line-height: 84rpx;
+}
+
+.queryIndexTitleTextTemplate{
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: rgb(51,51,51);
+  font-weight: bold;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.queryModelTemplate{
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx 0 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 100%;
+}
+.queryTitleTemplate{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.queryTitleTemplateHotImg{
+  width: 47rpx;
+  height: 47rpx;
+  margin: auto 5rpx auto 0;
+  flex-shrink: 0;
+}
+.queryTitleEmptyWidthTemplate{
+  width: 6rpx;
+  height: 37rpx;
+  margin: auto 8rpx auto 0;
+  background-color: #1ba5e3;
+}
+.queryTitleButtonColorTemplate{
+  color: #1ba5e3!important;
+}
+.queryTitleTextTemplate{
+  font-weight: bold;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-right: 30rpx;
+  font-size: 34rpx;
+  color: rgb(51,51,51);
+}
+.queryTitleButtonTemplate{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 0;
+  font-size: 30rpx;
+  color: #999999;
+  margin-right: 20rpx;
+  margin-left: 0;
+  padding: 0;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+.queryTitleButtonTemplate::after {
+  border: none;
+}
+
+.queryContSixTemplate{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  padding: 0 0 30rpx 30rpx;
+}
+.queryContButtonTemplate{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1ba5e3;
+  border-radius: 6rpx;
+  font-size: 30rpx;
+  color: #ffffff;
+  margin: 20rpx 20rpx 0 0;
+  padding: 0 20rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+}
+.queryContButtonTemplate::after{
+  border: none;
+}
+.queryContButtonTemplate[disabled][type="default"], .queryContButtonTemplate[disabled]:not([type]) {
+  color: #ffffff;
+  background-color :#1ba5e3;
+}
+
+.inputModelTemplate{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  padding: 20rpx 16rpx 30rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+.inputButtonShowSearchValueModelTemplate{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 42rpx;
+  border: 1rpx solid rgb(233,233,233);
+  font-size: 30rpx;
+  box-sizing: border-box;
+  padding: 0 10rpx 0 34rpx;
+  width: 100%;
+  box-shadow: 2rpx 2rpx 2rpx rgb(225,225,225);
+  text-align: left;
+}
+.inputButtonShowSearchValueModelTemplate::after{
+  border: none;
+}
+.SearchValueTemplateView{
+  display: flex;
+}
+.inputButtonModelTemplate{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 42rpx;
+  border: 1rpx solid rgb(233,233,233);
+  font-size: 30rpx;
+  box-sizing: border-box;
+  padding: 0 10rpx 0 34rpx;
+  width: 100%;
+  margin: 0;
+  color: #999999;
+  box-shadow: 2rpx 2rpx 2rpx rgb(225,225,225);
+}
+.inputButtonModelTemplate::after{
+  border: none;
+}
+.inputButtonModelTemplate[disabled][type="default"], .inputButtonModelTemplate[disabled]:not([type]) {
+  color: #999999;
+  background-color :#ffffff;
+}
+.inputButtonShowSearchValueModelTemplate[disabled][type="default"], .inputButtonShowSearchValueModelTemplate[disabled]:not([type]) {
+  color: #333333;
+  background-color :#ffffff;
+}
+.inputButtonModelImgTemplate{
+  margin: auto 0;
+  width: 34rpx;
+  height: 33rpx;
+  flex-shrink: 0;
+}
+.inputButtonModelViewTemplate{
+  margin-left: 20rpx;
+  line-height: 84rpx;
+  text-align: left;
+  max-width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.inputButtonObjTemplateOne{
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: #999999;
+  font-size: 30rpx;
+  margin: 30rpx 0 0;
+  box-sizing: border-box;
+  padding: 0 30rpx 0 14rpx;
+}
+.inputButtonObjTemplateTwo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #ffffff;
+  color: rgb(188,188,188);
+  font-size: 30rpx;
+  margin: 30rpx 0 0;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.inputButtonObjTemplateMoreText{
+  padding: 0 2rpx;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.inputButtonObjTemplateOneText{
+
+}
+
+.deleteSearchValueButton{
+  position: absolute;
+  top: 27rpx;
+  right: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  border-radius: 0 35rpx 35rpx 0;
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 70rpx;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+}
+.deleteSearchValueButton::after{
+  border: none;
+}
+.deleteSearchValueImg{
+  width: 40rpx;
+  height: 40rpx;
+  margin: auto;
+  flex-shrink: 0;
+}
+
+.buttonTitleViewTemplate{
+  background-color: #f8f9fb;
+  height: 90rpx;
+  line-height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.buttonTitleViewBgcTemplate{
+  height: 37rpx;
+  width: 10rpx;
+  background-color: #1ba5e3;
+  margin: auto 0;
+}
+.buttonTitleViewZwImgTemplate{
+  width: 145rpx;
+  height: 37rpx;
+  margin: auto 0 auto 30rpx;
+}
+.buttonTitleViewFjImgTemplate{
+  width: 143rpx;
+  height: 41rpx;
+  margin: auto 0 auto 30rpx;
+}
+.buttonTitleViewOlImgTemplate{
+  width: 152rpx;
+  height: 46rpx;
+  margin: auto 0 auto 30rpx;
+}
+
+.findButtonArrTemplate{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  margin: 0;
+  color: rgb(51,51,51);
+  background-color: #FFFFFF;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #e9e9e9;
+  text-align: left;
+  border-radius: 0;
+}
+.findButtonArrTemplate::after{
+  border: none;
+}
+.findButtonArrTemplate[disabled][type="default"], .findButtonArrTemplate[disabled]:not([type]) {
+  color: rgb(51,51,51);
+  background-color :#ffffff;
+}
+.findButtonArrTemplateIcon{
+  width: 11rpx;
+  height: 22rpx;
+  flex-shrink: 0;
+  margin: auto 0;
+}

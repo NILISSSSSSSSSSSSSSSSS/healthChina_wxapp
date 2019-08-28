@@ -1,0 +1,13 @@
+
+
+.hoverClass{
+  opacity: 0.5;
+}
+#TopLine{
+  position: fixed;
+  width: 100%;
+  height: 1rpx;
+  background-color: #e8e8e8;
+  top: 0;
+  z-index: 100;
+}

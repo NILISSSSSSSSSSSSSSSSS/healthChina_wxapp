@@ -1,0 +1,13 @@
+
+
+<import src="../../template/scienceDetailTemplate/scienceDetailTemplate.wxml"></import>
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<form report-submit="true" bindsubmit="serviceDetailButton" wx:if="{{ !isLoading }}">
+  <scroll-view scroll-y="true" enable-back-to-top="true" class="recommendedArr">
+    <template is="chooseScienceDetailTemplate" data="{{ scienceDetail,scienceDetailsDisabled,haveMoreStyle }}"></template>
+  </scroll-view>
+</form>
+
+
+

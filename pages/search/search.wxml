@@ -1,0 +1,45 @@
+
+
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<form report-submit="true" bindsubmit="searchSubmit" wx:if="{{ !isLoading }}">
+  <view class="searchHeader">
+    <view class="searchHeaderInput">
+      <image src="../../image/icon/ss.png" class="searchIcon"></image>
+      <input value="{{ searchValue }}" bindinput="bindInput" focus="true" catchconfirm="bindConfirm"  class="searchInput" confirm-type="search" placeholder="请输入您要查询的内容" placeholder-class="inputPlaceholder" maxlength="-1"/>
+      <button wx:if="{{ searchValue.length > 0 }}" hover-class="hoverClass" catchtap="deleteSearchValue" class="deleteSearchValueButton">
+        <image src="../../image/icon/icon_del.png" class="deleteSearchValueImg"></image>
+      </button>
+    </view>
+    <button disabled="{{ searchSubmitDisabled }}" hover-class="hoverClass" formType="submit" data-event="cancel" class="cancelButton">取消</button>
+  </view>
+  <view class="searchCont">
+    <view style="height:34rpx;"></view>
+    <block wx:if="{{ historyRecordArr.length > 0 }}">
+      <view class="historyAndRemove">
+        <view class="hotSearchTitleView">
+          <image src="../../image/icon/lsjl.png" class="historyImg"></image>
+          <view class="hotSearchTitleText">历史记录</view>
+        </view>
+        <button disabled="{{ searchSubmitDisabled }}" hover-class="hoverClass" formType="submit" data-event="removeRecord" class="removeRecord">清除</button>
+      </view>
+      <view class="historyRecordScrollView">
+        <button wx:for="{{ historyRecordArr }}" data-index="{{ index }}" data-event="historyRecord" wx:key="index" class="historyRecordButton" disabled="{{ searchSubmitDisabled }}" hover-class="hoverClass" formType="submit">
+          <view class="historyRecordText">{{ item.text }}</view>
+        </button>
+      </view>
+    </block>
+    <view class="emptyHotSearchArrView" wx:if="{{ historyRecordArr.length > 0 }}"></view>
+    <block wx:if="{{ hotSearchArr.length > 0 }}">
+      <view class="hotSearchCont">
+        <view class="hotSearchTitleView">
+          <image src="../../image/icon/hot.png" class="hotSearchTitleImg"></image>
+          <view class="hotSearchTitleText">热门搜索</view>
+        </view>
+        <view class="hotSearchShow">
+          <button wx:for="{{ hotSearchArr }}" data-index="{{ index }}" data-event="hotSearch" wx:key="index" class="hotSearchButton" disabled="{{ searchSubmitDisabled }}" hover-class="hoverClass" formType="submit">{{ item.text }}</button>
+        </view>
+      </view>
+    </block>
+  </view>
+</form>

@@ -1,0 +1,10 @@
+
+
+<import src="../../template/queryTemplate/queryTemplate.wxml"></import>
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<form report-submit="true" bindsubmit="submitButton">
+  <scroll-view bindscrolltolower="bindScrollTolower" bindscroll="bindScroll" scroll-y="true" enable-back-to-top="true" class="zhengWuLookScrollView">
+    <template is="chooseLookType" data="{{ currentPageIndex,type,lookListArr,newButtonDisabled }}"></template>
+  </scroll-view>
+</form>

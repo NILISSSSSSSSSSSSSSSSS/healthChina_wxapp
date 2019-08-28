@@ -1,0 +1,14 @@
+
+
+<import src="../../template/newButtonTemplate/newButtonTemplate.wxml"></import>
+<form report-submit="true" bindsubmit="serviceButton">
+  <scroll-view class="serviceButtonScrollView" scroll-y="true" enable-back-to-top="true">
+    <block wx:for="{{ findArr }}" wx:key="index">
+      <template is="buttonTitle" data="{{ buttonTitleType:item.type }}"></template>
+      <template is="findButton" data="{{ findButtonArr:item.arr  }}"></template>
+    </block>
+    <view style="height:30rpx;"></view>
+  </scroll-view>
+</form>
+
+ 

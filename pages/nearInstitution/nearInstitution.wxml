@@ -1,0 +1,33 @@
+
+
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<form report-submit="true" bindsubmit="nearInstitutionButton">
+  <button wx:if="{{ !isLoading }}" class="nearInstitutionPosition" formType="submit" data-event="chooseGps" data-index="{{ currentPosition }}" hover-class="hoverClass" disabled="{{ nearInstitutionDisabled }}">
+    <view class="nearInstitutionPositionView">
+      <view class="nearInstitutionPositionViewLeft">当前位置:</view>
+      <view class="currentPositionText">{{ currentPosition }}</view>
+    </view>
+    <image src="{{ toMoreImg }}" class="toMoreImg"></image>
+  </button>
+  <view class="nearInstitutionCont">
+    <block wx:for="{{ nearInstitutionArr }}" wx:key="index">
+      <button class="nearInstitutionButton" formType="submit" data-event="nearInstitution" data-index="{{ index }}" hover-class="hoverClass" disabled="{{ nearInstitutionDisabled }}">
+        <image lazy-load="true" mode="aspectFit" src="{{ item.img }}" class="nearInstitutionButtonImg"></image>
+        <view class="nearInstitutionButtonTextCont">
+          <view class="nearInstitutionButtonTitle">{{ item.title }}</view>
+          <view class="nearInstitutionButtonDescribe">
+            <image src="../../image/icon/icon_jili.png" class="distanceIcon"></image>
+            <view class="distanceText">距离你{{item.distance}}公里</view>
+            <!--<image src="../../image/icon/icon_zan_gray.png" class="zanIcon"></image>-->
+            <!--<view class="zanNum">{{ item.zanNum }}赞</view>-->
+          </view>
+        </view>
+      </button>
+    </block>
+    <template is="onReachBottomView" data="{{ arriveBottom }}"></template>
+    <template is="notMoreCont" data="{{ notMoreCont }}"></template>
+  </view>
+</form>
+

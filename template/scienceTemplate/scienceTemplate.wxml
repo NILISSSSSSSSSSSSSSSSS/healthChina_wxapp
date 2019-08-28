@@ -1,0 +1,127 @@
+
+
+<!--<template name="recommendedScience">-->
+  <!--<block wx:for="{{ recommendedArr }}" wx:key="index" wx:if="{{ recommendedScience === 1 }}">-->
+    <!--<button class="recommendedButton" data-index="{{ index }}" hover-class="hoverClass"  disabled="{{ scienceDisabled }}" formType="submit" data-event="recommendedEvent">-->
+      <!--<view class="recommendedButtonCont">-->
+        <!--<view class="recommendedButtonSubTitle moreTextHide">{{ item.title }}</view>-->
+        <!--<view class="recommendedButtonContTop">-->
+          <!--<view class="recommendedButtonLogoImgView">-->
+            <!--<image src="{{ item.logoImg }}" class="recommendedButtonLogoImg"></image>-->
+          <!--</view>-->
+          <!--<view class="recommendedButtonTitle oneTextHide">{{ item.subtitle }}</view>-->
+        <!--</view>-->
+      <!--</view>-->
+      <!--<image src="{{ item.re_img }}" class="recommendedButtonImg"></image>-->
+    <!--</button>-->
+  <!--</block>-->
+<!--</template>-->
+
+<template name="searchScience">
+  <block  wx:if="{{ recommendedScience == 2 }}" >
+    <block wx:for="{{ searchScienceArr }}" wx:key="index" wx:if="{{ searchScienceArr.length > 0 }}">
+      <template is="{{ item.type }}" data="{{ item,index,scienceDisabled }}"></template>
+    </block>
+    <block wx:if="{{ searchScienceArr.length == 0 }}">
+      <template is="notCont" data="{{ searchScienceArr,recommendedScience,scienceDisabled }}"></template>
+    </block>
+  </block>
+</template>
+
+<template name="recommendedScience">
+  <block  wx:if="{{ recommendedScience == 1 }}" >
+    <block wx:for="{{ recommendedArr }}" wx:key="index" wx:if="{{ recommendedArr.length > 0 }}">
+      <template is="{{ item.type }}" data="{{ item,index,scienceDisabled }}"></template>
+    </block>
+    <block wx:if="{{ recommendedArr.length == 0 }}">
+      <template is="notCont" data="{{ recommendedArr,recommendedScience,scienceDisabled }}"></template>
+    </block>
+  </block>
+</template>
+
+<template name="notCont">
+  <view class="notContView">
+    <image src="../../image/icon/not_cont_icon.png" class="notContImg"></image>
+    <view class="notContText">暂无内容</view>
+  </view>
+</template>
+
+<template name="describe">
+  <button class="searchScienceBtn describeBtn" data-index="{{ index }}" hover-class="hoverClass"  disabled="{{ scienceDisabled }}" formType="submit" data-event="{{ item.event }}">
+    <view class="describeTitle oneDescribeTextHide">{{ item.title }}</view>
+    <view class="describeContent moreTextHide">{{ item.content }}</view>
+    <view class="describeLabelView">
+      <view class="describeLabel">{{ item.label }}</view>
+    </view>
+  </button>
+</template>
+
+<template name="diseaseText">
+  <button class="searchScienceBtn describeBtn" data-index="{{ index }}" hover-class="hoverClass"  disabled="{{ scienceDisabled }}" formType="submit" data-event="{{ item.event }}">
+    <view class="describeTitle oneTextHide">{{ item.title }}</view>
+    <view class="describeContent moreTextHide">{{ item.content }}</view>
+    <view class="diseaseTextLabelView">
+      <view class="describeLabel">{{ item.label }}</view>
+      <view class="diseaseTextAuthor">
+        <view class="diseaseTextAuthorName">{{ item.name }}</view>
+        <view class="diseaseTextAuthorPosition">{{ item.position }}</view>
+      </view>
+    </view>
+  </button>
+</template>
+
+<template name="diseaseImg">
+  <button class="searchScienceBtn diseaseImgBtn" data-index="{{ index }}" hover-class="hoverClass"  disabled="{{ scienceDisabled }}" formType="submit" data-event="{{ item.event }}">
+    <image mode="aspectFit" src="{{ item.img }}" class="diseaseImgCont"></image>
+    <view class="diseaseImgText">
+      <view class="describeTitle diseaseImgOneTextHide">{{ item.title }}</view>
+      <view class="describeContent moreTextHide">{{ item.content }}</view>
+      <view class="diseaseTextLabelView">
+        <view class="describeLabel">{{ item.label }}</view>
+        <view class="diseaseTextAuthor">
+          <view class="diseaseTextAuthorName">{{ item.name }}</view>
+          <view class="diseaseTextAuthorPosition">{{ item.position }}</view>
+        </view>
+      </view>
+    </view>
+  </button>
+</template>
+
+<template name="doctor">
+  <button class="searchScienceBtn diseaseImgBtn" data-index="{{ index }}" hover-class="hoverClass"  disabled="{{ scienceDisabled }}" formType="submit" data-event="{{ item.event }}">
+    <view class="doctorHeaderImgView">
+      <image mode="aspectFit" src="{{ item.img }}" class="doctorHeaderImg"></image>
+    </view>
+    <view class="doctorText">
+      <view class="doctorTextName">
+        <view class="doctorTitle">{{ item.name }}<text class="doctorPosition">{{ item.position }}</text></view>
+        <view class="doctorAddress">{{ item.address }} {{ item. doctor_office }}</view>
+      </view>
+      <view class="doctorAddressGoodAt diseaseImgOneTextHide doctorAddress" wx:if="{{ item.content }}">擅长：{{ item.content }}</view>
+    </view>
+  </button>
+</template>
+
+<template name="hospitalText">
+  <button class="hospitalTextBtn searchScienceBtn" data-index="{{ index }}" hover-class="hoverClass"  disabled="{{ scienceDisabled }}" formType="submit" data-event="{{ item.event }}">
+    <view class="describeTitle hospitalTextOneTextHide">{{ item.title }}</view>
+    <view class="hospitalLevelCont">
+      <image src="../../image/icon/right.png" class="hospitalLevelImg"></image>
+      <view class="hospitalLevel moreTextHide">{{ item.level }}</view>
+    </view>
+    <view class="hospitalAddress">{{ item.address }}</view>
+  </button>
+</template>
+
+<template name="hospitalImg">
+  <button class="searchScienceBtn hospitalImgBtn" data-index="{{ index }}" hover-class="hoverClass"  disabled="{{ scienceDisabled }}" formType="submit" data-event="{{ item.event }}">
+    <image src="{{ item.img }}" class="hospitalImg"></image>
+    <view class="doctorText">
+      <view class="diseaseImgText">
+        <view class="describeTitle oneTextHide">{{ item.title }}</view>
+        <view class="hospitalLevel moreTextHide">{{ item.level }}</view>
+      </view>
+      <view class="hospitalAddress">{{ item.address }}</view>
+    </view>
+  </button>
+</template>

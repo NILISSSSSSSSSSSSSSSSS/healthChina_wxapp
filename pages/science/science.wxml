@@ -1,0 +1,21 @@
+
+
+<import src="../../template/scienceTemplate/scienceTemplate.wxml"></import>
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<import src="../../template/newButtonTemplate/newButtonTemplate.wxml"></import>
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<view id="TopLine"></view>
+<form report-submit="true" bindsubmit="scienceButton">
+  <scroll-view class="serviceButtonScrollView" scroll-y="true" enable-back-to-top="true" wx:if="{{ !isLoading }}">
+    <template is="input" data="{{ currentClickIndex,inputButtonObj,newButtonDisabled,isShowSearchValue }}"></template>
+    <view class="scienceButtonBottomEmptyGrayView"></view>
+    <template is="oneSubTitle" data="{{ oneSubTitleText }}"></template>
+    <view class="recommendedArr">
+      <template is="recommendedScience" data="{{ recommendedArr,recommendedScience,scienceDisabled }}"></template>
+      <template is="searchScience" data="{{ searchScienceArr,recommendedScience,scienceDisabled }}"></template>
+      <template is="onReachBottomView" data="{{ arriveBottom }}"></template>
+      <template is="notMoreCont" data="{{ notMoreCont }}"></template>
+    </view>
+  </scroll-view>
+</form>

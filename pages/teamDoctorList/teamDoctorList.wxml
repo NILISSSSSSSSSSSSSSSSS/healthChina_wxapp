@@ -1,0 +1,27 @@
+
+
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<form bindsubmit="teamDoctorListButton" report-submit="true" wx:if="{{ !isLoading }}">
+  <scroll-view scroll-y="true" enable-back-to-top="true" class="informationArr">
+    <block wx:for="{{ teamDoctorListArr }}" wx:key="{{ item.id }}" wx:if="{{ teamDoctorListArr.length > 0 }}">
+      <view class="teamDoctorListView">
+        <view class="headImgView">
+          <image src="{{ item.heal_url == '' ? notHeadImg : 'https:'+item.heal_url }}" class="headImg"></image>
+        </view>
+        <view class="doctorInfo">
+          <view class="doctorName">{{ item.name }}</view>
+          <view class="doctorZanView">
+            <text class="doctorPosition">{{ item.doctor_title }}</text>
+            <!--<image src="../../image/icon/icon_zan_docotorList.png" class="icon_zan_docotorList"></image>-->
+            <!--<view class="doctorZanNum">{{ item.praise_count ? item.praise_count:0 }}赞</view>-->
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</form>
+<view wx:if="{{ teamDoctorListArr.length == 0 }}" class="noneImgView">
+  <image src="{{ noneImg }}" class="noneImg"></image>
+  <view class="noneText">暂无相关内容</view>
+</view>

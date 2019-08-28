@@ -1,0 +1,17 @@
+
+
+@import "../../template/queryTemplate/queryTemplate.wxss";
+page{
+  background-color: #ffffff;
+}
+.showWarnDescribeBorderTopView{
+  width: 100%;
+  height: 1rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.showWarnDescribeBorderTop{
+  width: 100%;
+  height: 100%;
+  background-color: #e8e8e8;
+}

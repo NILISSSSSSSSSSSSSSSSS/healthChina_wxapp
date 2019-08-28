@@ -1,0 +1,72 @@
+
+
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<form report-submit="true" bindsubmit="institutionDetailButton" wx:if="{{ !isLoading }}">
+  <view class="institutionDetailButtonView">
+    <button class="institutionDetailButton" formType="submit" data-event="topButton" data-index="0" hover-class="hoverClass" disabled="{{ institutionDetailDisabled }}">
+      <view id="{{ swiperIndex == 0 ?'selectedButton':'notSelectButton' }}" class="topButtonText">机构介绍</view>
+      <view wx:if="{{ swiperIndex == 0 }}" class="selectedButtonLine"></view>
+    </button>
+    <button class="institutionDetailButton" formType="submit" data-event="topButton" data-index="1" hover-class="hoverClass" disabled="{{ institutionDetailDisabled }}">
+      <view id="{{ swiperIndex == 1 ?'selectedButton':'notSelectButton' }}" class="topButtonText">家医团队</view>
+      <view wx:if="{{ swiperIndex == 1 }}" class="selectedButtonLine"></view>
+    </button>
+    <view class="institutionDetailButtonViewLine"></view>
+  </view>
+  <swiper current="{{ swiperIndex }}" bindchange="swiperChange" indicator-dots="false" class="swiper">
+      <block wx:for="{{ swiperInstitutionArr }}" wx:key="index">
+        <swiper-item wx:if="{{ index === 0 }}">
+          <scroll-view scroll-y="true" enable-back-to-top="true" class="informationArr">
+            <view class="swiperImgView">
+              <image  mode="widthFix" lazy-load="true" src="{{ item.img }}" class="swiperImg"/>
+            </view>
+            <view class="addressAndTel" wx:if="{{ item.address }}" style="border-bottom:{{ item.tel?'':'none'}};">
+              <image src="../../image/icon/icon_blue_position.png" class="icon_blue_position"></image>
+              <view class="addressName">{{ item.address }}</view>
+            </view>
+            <button wx:if="{{ item.tel }}" style="border-bottom:none;" class="addressAndTel" formType="submit" data-event="takePhone" data-index="{{ item.tel }}" hover-class="hoverClass" disabled="{{ institutionDetailDisabled }}">
+              <image src="../../image/icon/icon_blue_tel.png" class="icon_blue_tel"></image>
+              <view class="addressName">{{ item.tel }}</view>
+            </button>
+            <view class="institutionDescribeView">
+              <view class="institutionDescribeTitle">机构介绍</view>
+              <view class="institutionDescribeText">{{ item.orgDescribe }}</view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item wx:if="{{ index === 1 }}">
+          <scroll-view scroll-y="true" enable-back-to-top="true" class="informationArr">
+            <block wx:for="{{ item.doctorTeamArr }}" wx:key="index" wx:for-item="team" wx:if="{{ item.doctorTeamArr.length > 0 }}">
+              <button class="doctorTeamButton" formType="submit" data-event="doctorTeamButton" data-index="{{ index }}" hover-class="hoverClass" disabled="{{ institutionDetailDisabled }}">
+                <view class="doctorTeamButtonLeft">
+                  <view class="headImgView">
+                    <image src="{{ team.heal_url == '' ? notHeadImg : team.heal_url }}" class="headImg"></image>
+                  </view>
+                  <view class="doctorTeamButtonLeftCont">
+                    <view class="doctorTeamButtonLeftTitle">{{ team.name }}团队</view>
+                    <view class="doctorTeamButtonLeftNum">
+                      <view class="signNumView">
+                        <image src="../../image/icon/icon_blue_team.png" class="icon_blue_team"></image>
+                        <view class="signNum">已签约{{ team.contract_count }}</view>
+                      </view>
+                      <!--<view class="zanNumView">-->
+                        <!--<image src="../../image/icon/icon_zan_y.png" class="icon_zan_y"></image>-->
+                        <!--<view class="zanNum">{{ team.praise_doctor_count ? team.praise_doctor_count:0 }}赞</view>-->
+                      <!--</view>-->
+                    </view>
+                  </view>
+                </view>
+                <image src="../../image/icon/icon_arrows_r.png" class="icon_arrows_r"></image>
+              </button>
+            </block>
+            <view wx:if="{{ item.doctorTeamArr.length == 0 }}" class="noneImgView">
+              <image src="{{ noneImg }}" class="noneImg"></image>
+              <view class="noneText">暂无相关内容</view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+      </block>
+    </swiper>
+</form>
+

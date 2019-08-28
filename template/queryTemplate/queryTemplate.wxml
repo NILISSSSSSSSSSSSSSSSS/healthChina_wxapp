@@ -1,0 +1,415 @@
+
+
+<template name="newSubTitle">
+  <view class="newSubTitleTemplate">
+    <image src="../../image/icon/group.png" class="groupImgTemplate"></image>
+    <view class="newSubTitleTextTemplate">{{ newSubTitle }}</view>
+    <image src="../../image/icon/group_2.png" class="groupImgTemplate"></image>
+  </view>
+</template>
+
+<template name="queryButton">
+  <button disabled="{{ newButtonDisabled }}" class="queryButtonTemplate" data-event="queryButton" formType="submit">
+    <image src="../../image/icon/query_search.png" class="querySearchImgTemplate"></image>
+    <view class="querySearchTextTemplate">查询</view>
+  </button>
+</template>
+
+<template name="query">
+  <view class="queryTemplateFlexColumn">
+    <!--<view class="queryTemplateFlexTitle">{{ queryObj.title }}</view>-->
+    <template is="newSubTitle" data="{{ newSubTitle:queryObj.title  }}"></template>
+    <view class="queryTemplateFlexColumnCont">
+      <block wx:for="{{ queryObj.arr }}" wx:key="index" wx:for-item="queryItem">
+        <template is="{{ queryItem.type }}" data="{{ index,queryObj,queryItem,maxLengthWidth,otherQueryObj }}"></template>
+      </block>
+    </view>
+  </view>
+</template>
+
+<template name="text">
+  <view style="width:{{ maxLengthWidth }};" class="queryTemplateFlexRowText">{{ queryItem.text }}</view>
+</template>
+
+<template name="oneInput">
+  <view style="border-bottom:{{ queryObj.arr.length-1 == index ?'none':'' }}" class="queryTemplateFlexRow">
+    <template is="text" data="{{ queryItem,maxLengthWidth }}"></template>
+    <input name="{{ queryItem.name }}" class="flexEndInputTemplate inputTemplate" placeholder="{{ queryItem.placeholder }}" placeholder-class="placeholder" maxlength="-1"/>
+  </view>
+</template>
+
+<template name="adCodePicker">
+  <view style="border-bottom:{{ queryObj.arr.length-1 == index ?'none':'' }}" class="queryTemplateFlexRow">
+    <template is="text" data="{{ queryItem,maxLengthWidth }}"></template>
+    <picker catchchange="adCodePickerChange" class="adCodePickerInputTemplate inputTemplate" mode="selector" value="{{ otherQueryObj[queryItem.type].rangeIndex }}" range="{{ queryItem.range }}" range-key="name">
+      <block wx:if="{{ otherQueryObj[queryItem.type].isShowAdCodeRangeValue }}">{{ queryItem.range[otherQueryObj[queryItem.type].rangeIndex].name }}</block>
+      <block wx:else>
+        <text class="placeholder">{{ queryItem.placeholder }}</text>
+      </block>
+    </picker>
+  </view>
+</template>
+
+<template name="hospitalCategoryPicker">
+  <view style="border-bottom:{{ queryObj.arr.length-1 == index ?'none':'' }}" class="queryTemplateFlexRow">
+    <template is="text" data="{{ queryItem,maxLengthWidth }}"></template>
+    <picker catchchange="hospitalCategoryPickerChange" class="adCodePickerInputTemplate inputTemplate" mode="selector" value="{{ otherQueryObj[queryItem.type].rangeIndex }}" range="{{ queryItem.range }}" range-key="value">
+      <block wx:if="{{ otherQueryObj[queryItem.type].isShowAdCodeRangeValue }}">{{ queryItem.range[otherQueryObj[queryItem.type].rangeIndex].value }}</block>
+      <block wx:else>
+        <text class="placeholder">{{ queryItem.placeholder }}</text>
+      </block>
+    </picker>
+  </view>
+</template>
+
+<template name="hospitalLevelPicker">
+  <view style="border-bottom:{{ queryObj.arr.length-1 == index ?'none':'' }}" class="queryTemplateFlexRow">
+    <template is="text" data="{{ queryItem,maxLengthWidth }}"></template>
+    <picker catchchange="hospitalLevelPickerOneChange" class="inputTemplate" mode="selector" value="{{ otherQueryObj[queryItem.type].rangeIndex }}" range="{{ queryItem.rangeCategory }}" range-key="value">
+      <block wx:if="{{ otherQueryObj.hospitalLevelOnePicker.isShowAdCodeRangeValue }}">{{ queryItem.rangeCategory[otherQueryObj.hospitalLevelOnePicker.rangeIndex].value }}</block>
+      <block wx:else>
+        <text class="placeholder">{{ queryItem.placeholderOne }}</text>
+      </block>
+    </picker>
+    <picker catchchange="hospitalLevelPickerTwoChange" class="inputTemplate" mode="selector" value="{{ otherQueryObj[queryItem.type].rangeIndex }}" range="{{ queryItem.rangeLevel }}" range-key="value">
+      <block wx:if="{{ otherQueryObj.hospitalLevelTwoPicker.isShowAdCodeRangeValue }}">{{ queryItem.rangeLevel[otherQueryObj.hospitalLevelTwoPicker.rangeIndex].value }}</block>
+      <block wx:else>
+        <text class="placeholder">{{ queryItem.placeholderTwo }}</text>
+      </block>
+    </picker>
+  </view>
+</template>
+
+<template name="hospitalLevelQueryDescribe">
+  <template is="newSubTitle" data="{{ newSubTitle:instructionsArr.title }}"></template>
+  <view class="queryDescribeView">
+    <block wx:for="{{ instructionsArr.arr }}" wx:key="index">
+      <view class="instructionsArrFlexRow" wx:if="{{ item.length > 0 }}">
+        <block wx:for="{{ item }}" wx:key="index" wx:for-item="instructionsInfo">
+          <text selectable="true" class="queryDescribeTemplateColor queryDescribeTitleFlexRow {{ instructionsInfo.type == 'title'?'queryDescribeTitle':'queryDescribeCont' }}"><block wx:if="{{ item.number }}">{{ instructionsInfo.number }}</block>{{ instructionsInfo.text }}</text>
+        </block>
+      </view>
+      <text wx:else selectable="true" class="queryDescribeTemplateColor {{ item.type == 'title'?'queryDescribeTitle':'queryDescribeCont' }}"><block wx:if="{{ item.number }}">{{ item.number }}</block>{{ item.text }}</text>
+    </block>
+  </view>
+</template>
+
+<template name="instructionsTc">
+  <view class="instructionsTcTemplate" wx:if="{{ firstEnter }}">
+    <scroll-view style="height:{{ showTcMaxHeight }};" scroll-y="true" class="instructionsTcTemplateView">
+      <view class="instructionsTcTemplateTitle">
+        <image src="../../image/icon/bitmap2.png" class="bitmap2ImgTemplate"></image>
+        <view class="instructionsTcTemplateTitleText">{{ instructionsArr.title }}</view>
+      </view>
+      <view class="instructionsTcTemplateContFlexColumn">
+        <view class="absoluteLineTemplate"></view>
+        <block wx:for="{{ instructionsArr.arr }}" wx:key="index">
+          <view class="instructionsArrFlexRow" wx:if="{{ item.length > 0 }}">
+            <block wx:for="{{ item }}" wx:key="index" wx:for-item="instructionsInfo">
+              <text selectable="true" style="padding-left:{{ instructionsInfo.paddingLeft }}" class="queryDescribeTemplateColor queryDescribeTitleFlexRow {{ instructionsInfo.type == 'title'?'instructionsTcDescribeTitle':instructionsInfo.type == 'colorTitle'?'instructionsTcDescribeColorTitle':'instructionsTcDescribeCont' }}">{{ instructionsInfo.text }}</text>
+            </block>
+          </view>
+          <view class="circlePointTemplateFlexRow" wx:else>
+            <view class="circlePointTemplate" wx:if="{{ item.type == 'title' }}"></view>
+            <text selectable="true" class="{{ item.type == 'title'?'instructionsTcDescribeTitle':item.type == 'subTitle'?'instructionsTcDescribeSubTitle':item.type == 'colorTitle'?'instructionsTcDescribeColorTitle':'instructionsTcDescribeCont' }}">{{ item.text }}</text>
+          </view>
+        </block>
+        <view class="instructionsTcIKnowView">
+          <button disabled="{{ newButtonDisabled }}" class="instructionsTcIKnow" data-event="instructionsTcIKnow" hover-class="hoverClass" formType="submit">我知道了</button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>
+
+<template name="warnDescribe">
+  <view class="warnDescribe">
+    <view class="warnDescribeStart">*</view>
+    <view class="warnDescribeText">{{ warnDescribeText }}</view>
+  </view>
+</template>
+
+<template name="chooseQueryResult">
+  <template is="{{ type }}QueryResult" data="{{ queryResultArr,emptyQueryResultText }}"></template>
+</template>
+
+<template name="hospitalLevelQueryResult">
+  <block wx:if="{{ queryResultArr.length > 0 }}">
+    <template is="newSubTitle" data="{{ newSubTitle:'您所查询的医院名录如下显示' }}"></template>
+    <view class="hospitalLevelQueryResult">
+      <view class="hospitalLevelQueryResultCont">
+        <block wx:for="{{ queryResultArr }}" wx:key="index">
+          <button class="cityNameTemplate" data-index="{{index}}" data-event="moreLess" formType="submit">
+            <view class="cityNameTemplateFlex">
+              <image src="../../image/icon/bitmap.png" class="cityNameTemplateImg"></image>
+              <view class="cityNameTemplateText">{{ item.cityName }} ({{ item.hospital.length }}家)</view>
+            </view>
+            <image src="{{ item.imageUrl }}" class="{{ item.isShow ? 'moreImgTemplate':'lessImgTemplate' }}"></image>
+          </button>
+          <view wx:if="{{ item.isShow }}">
+            <block wx:for="{{ item.hospital }}" wx:key="index" wx:for-item="info">
+              <view class="lineGrayOneHeightTemplate" wx:if="{{ index != 0 }}"></view>
+              <view class="cityNameTemplateCont">
+                <view class="cityNameTemplateContView">
+                  <view class="cityNameTemplateContText">医院名称:</view>
+                  <view class="cityNameTemplateContViewTextShow">{{ info.name }}</view>
+                </view>
+                <view class="cityNameTemplateContView">
+                  <view class="cityNameTemplateContText">医院类别:</view>
+                  <view class="cityNameTemplateContViewTextShow">{{ info.typeName }}</view>
+                </view>
+                <view style="border-bottom:none" class="cityNameTemplateContView">
+                  <view class="cityNameTemplateContText">医院等级:</view>
+                  <view class="cityNameTemplateContViewTextShow">{{ info.gradeName }}{{ info.levelName }}</view>
+                </view>
+              </view>
+              <block wx:if="{{ queryResultArr.length == 1 }}">
+                <view class="lineGrayOneHeightTemplate"></view>
+                <view class="thirtyHeightGrayTemplate"></view>
+              </block>
+              <block wx:if="{{ queryResultArr.length > 1 }}">
+                <block wx:if="{{ index+1 != item.hospital.length }}">
+                  <view class="lineGrayOneHeightTemplate"></view>
+                  <view class="thirtyHeightGrayTemplate"></view>
+                </block>
+              </block>
+            </block>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{ queryResultArr.length == 0 }}">
+    <template is="emptyQueryResult" data="{{ emptyQueryResultText }}"></template>
+  </block>
+</template>
+
+<template name="practiceDoctorQueryResult">
+  <block wx:if="{{ queryResultArr.length > 0 }}">
+    <template is="newSubTitle" data="{{ newSubTitle:'您所查询的医生信息如下显示' }}"></template>
+    <view class="practiceDoctorQueryResult">
+      <block wx:for="{{ queryResultArr }}" wx:key="index">
+        <button data-index="{{ index }}" disabled="{{ newButtonDisabled }}" class="practiceDoctorQueryResultView" data-event="getDetails" hover-class="hoverClass" formType="submit">
+          <view class="getDetailsTemplateText">详情</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">执业地点:</text>{{ item.cityName }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">姓名:</text>{{ item.name }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">性别:</text>{{ item.sexName }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">医师级别:</text>{{ item.practiceArea }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">医师类别:</text>{{ item.category }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">所在医疗机构:</text>{{ item.organ }}</view>
+        </button>
+      </block>
+    </view>
+  </block>
+  <block wx:if="{{ queryResultArr.length == 0 }}">
+    <template is="emptyQueryResult" data="{{ emptyQueryResultText }}"></template>
+  </block>
+</template>
+
+<template name="practiceNurseQueryResult">
+  <block wx:if="{{ queryResultArr.length > 0 }}">
+    <template is="newSubTitle" data="{{ newSubTitle:'您所查询的护士信息如下显示' }}"></template>
+    <view class="practiceDoctorQueryResult">
+      <block wx:for="{{ queryResultArr }}" wx:key="index">
+        <button data-index="{{ index }}" class="practiceDoctorQueryResultView" hover-class="hoverClass">
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">执业地点:</text>{{ item.cityName }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">姓名:</text>{{ item.name }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">性别:</text>{{ item.sexName }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">证书编号:</text>{{ item.numbering }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">所在医疗机构:</text>{{ item.organ }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">发证(注册)机关:</text>{{ item.issuingAuthority }}</view>
+        </button>
+      </block>
+    </view>
+  </block>
+<block wx:if="{{ queryResultArr.length == 0 }}">
+  <template is="emptyQueryResult" data="{{ emptyQueryResultText }}"></template>
+</block>
+</template>
+
+<template name="emptyQueryResult">
+  <view class="emptyQueryResult">
+    <image src="../../image/icon/kong.png" class="emptyQueryResultImg"></image>
+    <view class="emptyQueryResultText">{{ emptyQueryResultText }}</view>
+  </view>
+</template>
+
+<template name="practiceDoctorTc">
+  <view class="instructionsTcTemplate" wx:if="{{ showPracticeDoctorTc }}">
+  <scroll-view style="height:{{ showTcMaxHeight }};" scroll-y="true" class="instructionsTcTemplateView">
+    <button disabled="{{ newButtonDisabled }}" class="returnQueryResult" data-event="returnQueryResult" hover-class="hoverClass" formType="submit">关闭</button>
+    <view class="instructionsTcTemplateTitle">医生执业注册信息</view>
+    <view class="practiceDoctorTcVIewContTemplateSHow">
+      <view class="practiceDoctorTcVIew">
+        <view class="practiceDoctorTcVIewCont">
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">姓名:</text>{{ currentClickDoctorInfo.name }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">医师级别:</text>{{ currentClickDoctorInfo.practiceArea }}</view>
+        </view>
+        <view class="practiceDoctorTcVIewCont">
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">性别:</text>{{ currentClickDoctorInfo.sexName }}</view>
+          <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">医师类别:</text>{{ currentClickDoctorInfo.category }}</view>
+        </view>
+      </view>
+      <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">执业地点:</text>{{ currentClickDoctorInfo.cityName }}</view>
+      <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">执业证书编号:</text>{{ currentClickDoctorInfo.numbering }}</view>
+      <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">主要执业机构:</text>{{ currentClickDoctorInfo.organ }}</view>
+      <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">执业范围:</text>{{ currentClickDoctorInfo.practiceArea }}</view>
+      <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">发证(批准)机关:</text>{{ currentClickDoctorInfo.issuingAuthority }}</view>
+      <view class="cityNameTemplateContView"><text class="cityNameTemplateContText">多机构备案信息:</text></view>
+      <view style="height:20rpx"></view>
+      <view style="color:red" class="cityNameTemplateContView">{{ currentClickDoctorInfo.recordInfo }}</view>
+      <view style="height:40rpx"></view>
+    </view>
+  </scroll-view>
+</view>
+</template>
+
+<template name="chooseLookType">
+  <template is="{{ type }}" data="{{ currentPageIndex,lookListArr,newButtonDisabled }}"></template>
+</template>
+
+<template name="assistedOrg">
+  <block wx:if="{{ lookListArr.items.length > 0 }}">
+    <view class="assistedReproductiveOrgHeader">
+      <view class="assistedReproductiveOrgHeaderTitle">{{ lookListArr.title }}</view>
+      <view class="assistedReproductiveOrgHeaderTime">{{ lookListArr.releaseTime }}</view>
+    </view>
+    <view class="hospitalLevelQueryResult">
+      <!--<view class="assistedReproductiveOrgContSubtitle">一、{{ lookListArr.title }}</view>-->
+      <!--<view class="assistedReproductiveOrgContAsOfTime">{{ lookListArr.asOfTime }}</view>-->
+      <view class="assistedReproductiveOrgContOneTitle">{{ lookListArr.tip }}</view>
+      <view class="hospitalLevelQueryResultCont">
+        <block wx:for="{{ lookListArr.items }}" wx:key="index">
+          <button class="cityNameTemplate" data-index="{{index}}" data-event="moreLess" formType="submit">
+            <view class="cityNameTemplateFlex">
+              <image src="../../image/icon/bitmap.png" class="cityNameTemplateImg"></image>
+              <view class="cityNameTemplateText">{{ item.provinceName }} ({{ item.hospital.length }}家)</view>
+            </view>
+            <image src="{{ item.imageUrl }}" class="{{ item.isShow ? 'moreImgTemplate':'lessImgTemplate' }}"></image>
+          </button>
+          <view wx:if="{{ item.isShow }}">
+            <block wx:for="{{ item.hospital }}" wx:key="index" wx:for-item="info">
+              <view class="lineGrayOneHeightTemplate" wx:if="{{ index != 0 }}"></view>
+              <view class="cityNameTemplateCont">
+                <view class="cityNameTemplateContView">
+                  <view class="cityNameTemplateContText">医疗机构:</view>
+                  <view class="cityNameTemplateContViewTextShow">{{ info.name }}</view>
+                </view>
+                <view class="cityNameTemplateContView">
+                  <view class="cityNameTemplateContText">机构地址:</view>
+                  <view class="cityNameTemplateContViewTextShow">{{ info.address }}</view>
+                </view>
+                <view class="cityNameTemplateContView">
+                  <view class="cityNameTemplateContText">准入技术:</view>
+                  <view class="cityNameTemplateContViewTextShow">{{ info.accessTechnology }}</view>
+                </view>
+                <view style="border-bottom:none" class="cityNameTemplateContView">
+                  <view class="cityNameTemplateContText">运行状态:</view>
+                  <view class="cityNameTemplateContViewTextShow">{{ info.status }}</view>
+                </view>
+              </view>
+              <block wx:if="{{ lookListArr.items.length == 1 }}">
+                <view class="lineGrayOneHeightTemplate"></view>
+                <view class="thirtyHeightGrayTemplate"></view>
+              </block>
+              <block wx:if="{{ lookListArr.items.length > 1 }}">
+                <block wx:if="{{ index+1 != item.hospital.length }}">
+                  <view class="lineGrayOneHeightTemplate"></view>
+                  <view class="thirtyHeightGrayTemplate"></view>
+                </block>
+              </block>
+            </block>
+          </view>
+          <block wx:if="{{ lookListArr.items.length > 1 }}">
+            <view wx:if="{{ !item.isShow }}" class="lookListArrBaiBac"></view>
+          </block>
+        </block>
+      </view>
+    </view>
+    <view style="height:60rpx;"></view>
+  </block>
+  <block wx:if="{{ lookListArr.items.length == 0 }}">
+    <template is="emptyLookResult" data="{{ emptyLookText:'没有查询到相关内容' }}"></template>
+  </block>
+</template>
+
+<template name="transplantOrg">
+  <block wx:if="{{ lookListArr.items.length > 0 }}">
+    <view class="assistedReproductiveOrgHeader">
+      <view class="assistedReproductiveOrgHeaderTitle">{{ lookListArr.title }}</view>
+      <view class="assistedReproductiveOrgHeaderTime">{{ lookListArr.releaseTime }}</view>
+    </view>
+    <view class="hospitalLevelQueryResult">
+      <!--<view class="assistedReproductiveOrgContSubtitle">一、{{ lookListArr.title }}</view>-->
+      <!--<view class="assistedReproductiveOrgContAsOfTime">{{ lookListArr.asOfTime }}</view>-->
+      <view class="assistedReproductiveOrgContOneTitle">{{ lookListArr.tip }}</view>
+      <view class="hospitalLevelQueryResultCont">
+        <block wx:for="{{ lookListArr.items }}" wx:key="index">
+          <button class="cityNameTemplate" data-index="{{index}}" data-event="moreLess" formType="submit">
+            <view class="cityNameTemplateFlex">
+              <image src="../../image/icon/bitmap.png" class="cityNameTemplateImg"></image>
+              <view class="cityNameTemplateText">{{ item.provinceName }} ({{ item.hospital.length }}家)</view>
+            </view>
+            <image src="{{ item.imageUrl }}" class="{{ item.isShow ? 'moreImgTemplate':'lessImgTemplate' }}"></image>
+          </button>
+          <view wx:if="{{ item.isShow }}">
+            <block wx:for="{{ item.hospital }}" wx:key="index" wx:for-item="info">
+              <view class="lineGrayOneHeightTemplate" wx:if="{{ index != 0 }}"></view>
+              <view class="cityNameTemplateCont">
+                <view class="cityNameTemplateContView">
+                  <view class="cityNameTemplateContText">医疗机构:</view>
+                  <view class="cityNameTemplateContViewTextShow">{{ info.name }}</view>
+                </view>
+                <view style="border-bottom:none" class="cityNameTemplateContView">
+                  <view class="cityNameTemplateContText">移植项目:</view>
+                  <view class="cityNameTemplateContViewTextShow">{{ info.project }}</view>
+                </view>
+              </view>
+              <block wx:if="{{ lookListArr.items.length == 1 }}">
+                <view class="lineGrayOneHeightTemplate"></view>
+                <view class="thirtyHeightGrayTemplate"></view>
+              </block>
+              <block wx:if="{{ lookListArr.items.length > 1 }}">
+                <block wx:if="{{ index+1 != item.hospital.length }}">
+                  <view class="lineGrayOneHeightTemplate"></view>
+                  <view class="thirtyHeightGrayTemplate"></view>
+                </block>
+              </block>
+            </block>
+          </view>
+          <block wx:if="{{ lookListArr.items.length > 1 }}">
+            <view wx:if="{{ !item.isShow }}" class="lookListArrBaiBac"></view>
+          </block>
+        </block>
+      </view>
+    </view>
+    <view style="height:60rpx;"></view>
+  </block>
+  <block wx:if="{{ lookListArr.items.length == 0 }}">
+    <template is="emptyLookResult" data="{{ emptyLookText:'没有查询到相关内容' }}"></template>
+  </block>
+</template>
+
+<template name="medicinesList">
+  <block  wx:if="{{ lookListArr.length >0 }}">
+    <view class="currentPageIndex">{{ currentPageIndex }}/{{ lookListArr.length }}</view>
+    <block wx:for="{{ lookListArr }}" wx:key="index">
+      <button disabled="{{ newButtonDisabled }}" class="medicinesListTemplate" data-event="lookMaxImg" hover-class="hoverClass" formType="submit">
+        <image lazy-load="true" mode="widthFix" src="{{ item.url }}" class="medicinesListTemplateImg"></image>
+      </button>
+    </block>
+  </block>
+  <block wx:if="{{ lookListArr.length == 0 }}">
+    <template is="emptyLookResult" data="{{ emptyLookText:'没有查询到相关内容' }}"></template>
+  </block>
+</template>
+
+<template name="emptyLookResult">
+<view class="emptyLookResult">
+  <view class="emptyQueryResult">
+    <image src="../../image/icon/kong.png" class="emptyQueryResultImg"></image>
+    <view class="emptyQueryResultText">{{ emptyLookText }}</view>
+  </view>
+</view>
+</template>
+

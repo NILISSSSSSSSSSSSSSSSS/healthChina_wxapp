@@ -1,0 +1,57 @@
+
+
+<import src="../../template/scienceDetailTemplate/scienceDetailTemplate.wxml"></import>
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<view id="TopLine"></view>
+<form bindsubmit="newsDetailButton" report-submit="true">
+  <scroll-view scroll-y="true" enable-back-to-top="true" class="newsDetailScrollView">
+    <view class="newsInfoTitle">{{newsInfo.title}}</view>
+
+    <view class="newsInfo_institutions" wx:if="{{ newsInfo.institutions.name !== '' }}">
+      <view class="newsInfo_institutions_left">
+        <image src="{{ newsInfo.institutions.img }}" class="newsInfo_institutions_img"></image>
+        <view class="newsInfo_institutions_name">{{ newsInfo.institutions.name }}</view>
+      </view>
+      <view class="newsInfo_institutions_time">{{ newsInfo.institutions.time }}</view>
+    </view>
+
+    <view class="newsInfo_doctorInfo" wx:if="{{ newsInfo.doctorInfo.name !== '' }}">
+      <view class="newsInfo_doctorInfo_headImg_cont">
+        <image src="{{ newsInfo.doctorInfo.headImg }}" class="newsInfo_doctorInfo_headImg"></image>
+      </view>
+      <view class="newsInfo_doctorInfo_cont">
+        <view class="newsInfo_doctorInfo_name">{{ newsInfo.doctorInfo.name }}  {{ newsInfo.doctorInfo.position }}</view>
+        <view class="newsInfo_doctorInfo_address">{{ newsInfo.doctorInfo.address }}</view>
+      </view>
+    </view>
+
+    <view wx:if="{{ newsInfo.audioUrl !== '' }}" class="newsInfo_audioInfo">
+      <button class="audioPlayButton" formType="submit" data-event="controlAudio" hover-class="hoverClass">
+        <image src="{{ audioPlayImg }}" class="newsInfo_audioInfo_audioPlayImg"></image>
+      </button>
+      <view class="newsInfo_audioInfo_cont">
+        <view class="newsInfo_audioInfo_title">{{ newsInfo.title }}</view>
+        <slider disabled="{{ sliderDisabled }}" class="newsInfo_audioInfo_slider" value="{{ playTime }}" bindchange="seek" min="0" max="{{ sliderMax }}" backgroundColor="#e7e7e7" activeColor="#1ba5e3"></slider>
+        <view class="newsInfo_audioInfo_time">
+          <view class="newsInfo_audioInfo_sliderTime">{{ sliderTime }}</view>
+          <view class="newsInfo_audioInfo_audioTime" wx:if="{{ audioTime != '' }}">时长: {{ audioTime }}</view>
+        </view>
+      </view>
+    </view>
+
+    <!--<image mode="widthFix" src="{{ newsInfo.describeImg }}" wx:if="{{ newsInfo.describeImg != '' }}" class="newsInfoDescribeImg"></image>-->
+
+    <!--<view class="newsInfoContent">{{ newsInfo.content }}</view>-->
+    <template is="textStyle" data="{{ scienceDetail }}"></template>
+
+    <!--<view class="emptyView"></view>-->
+  </scroll-view>
+
+  <button wx:if="{{ canClickZan == 1 }}" class="clickZanButton" formType="submit" data-event="clickZan" hover-class="hoverClass">
+    <image src="{{ clickZanImg }}" class="clickZanImg"></image>
+  </button>
+
+  <view class="clickZanSuccess" animation="{{ hideZanSucAnimation }}" wx:if="{{ clickZanSuccess }}">+ 1</view>
+</form>
+

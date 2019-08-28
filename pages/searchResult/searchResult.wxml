@@ -1,0 +1,12 @@
+
+
+<import src="../../template/queryTemplate/queryTemplate.wxml"></import>
+<import src="../../template/commonTemplate/commonTemplate.wxml"></import>
+<template is="loadingHealthChina" data="{{ isLoading }}"></template>
+<form report-submit="true" bindsubmit="submitButton">
+  <template is="chooseQueryResult" data="{{ type,queryResultArr,emptyQueryResultText }}"></template>
+  <template is="practiceDoctorTc" data="{{ showPracticeDoctorTc,currentClickDoctorInfo,showTcMaxHeight }}"></template>
+  <block wx:if="{{ queryResultArr.length >= 0 }}">
+    <template is="hospitalLevelQueryDescribe" data="{{ instructionsArr }}"></template>
+  </block>
+</form>

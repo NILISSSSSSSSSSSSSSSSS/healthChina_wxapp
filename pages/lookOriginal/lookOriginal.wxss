@@ -1,0 +1,17 @@
+
+
+@import "../../template/scienceDetailTemplate/scienceDetailTemplate.wxss";
+page{
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  width: 100%;
+  overflow-x: hidden;
+}
+.recommendedArr{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.scienceDetailTextCont{
+  border-bottom: none !important;
+}

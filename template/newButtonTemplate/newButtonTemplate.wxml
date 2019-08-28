@@ -1,0 +1,97 @@
+
+
+<template name="newButton">
+  <view class="queryModelTemplate">
+    <view class="queryTitleTemplate">
+      <view class="queryTitleEmptyWidthTemplate"></view>
+      <view class="queryTitleTextTemplate">{{ queryObj.title }}</view>
+      <block wx:if="{{ queryObj.queryButton }}">
+        <button class="{{ index == currentClickIndex ?'queryTitleButtonColorTemplate':'' }} queryTitleButtonTemplate" wx:for="{{ queryObj.queryButton }}" wx:key="index" data-event="{{ item.event }}" hover-class="hoverClass" formType="submit">{{ item.text }}</button>
+      </block>
+    </view>
+    <view style="justify-content:{{ queryObj.contButton.length == 4 ? 'flex-start': queryObj.contButton.length > 1 ? 'space-around':'flex-start' }}" class="queryContSixTemplate" wx:if="{{ currentClickIndex == 0 }}">
+      <button data-index="{{ index }}" disabled="{{ newButtonDisabled }}" style="width:{{ maxHtmlWidth }};" class="queryContButtonTemplate" wx:for="{{ queryObj.contButton }}" wx:key="index" data-event="{{ item.event }}" hover-class="hoverClass" formType="submit">{{ item.text }}</button>
+    </view>
+    <template is="input" data="{{ currentClickIndex,inputButtonObj,isShowSearchValue,newButtonDisabled }}"></template>
+  </view>
+</template>
+
+<template name="input">
+  <view class="inputModelTemplate" wx:if="{{ currentClickIndex == 1 }}">
+    <button disabled="{{ newButtonDisabled }}" class="{{ isShowSearchValue ? 'inputButtonShowSearchValueModelTemplate':'inputButtonModelTemplate' }}" data-event="inputButton" hover-class="hoverClass" formType="submit">
+      <image src="../../image/icon/ss.png" class="inputButtonModelImgTemplate"></image>
+      <view class="inputButtonModelViewTemplate">{{ inputButtonObj.inputText }}</view>
+    </button>
+    <button wx:if="{{ isShowSearchValue }}" hover-class="hoverClass" catchtap="deleteSearchValue" class="deleteSearchValueButton">
+      <image src="../../image/icon/icon_del.png" class="deleteSearchValueImg"></image>
+    </button>
+    <!--searchType   1 : index , 2:kePu -->
+    <view class="{{ inputButtonObj.searchType == 1 ?'inputButtonObjTemplateOne':inputButtonObj.searchType == 2?'inputButtonObjTemplateTwo':'inputButtonObjTemplateOne' }}">
+      <block wx:for="{{ inputButtonObj.describe }}" wx:key="index">
+        <view class="{{ inputButtonObj.describe.length > 1 ? 'inputButtonObjTemplateMoreText':'inputButtonObjTemplateOneText'}}">{{ item.text }}</view>
+      </block>
+    </view>
+  </view>
+</template>
+
+<template name="oneSubTitle">
+  <view class="queryModelTemplate">
+    <view class="queryTitleTemplate">
+      <image src="../../image/icon/hot.png" class="queryTitleTemplateHotImg" wx:if="{{ oneSubTitleText == '热门搜索' }}"></image>
+      <view class="queryTitleTextTemplate">{{ oneSubTitleText }}</view>
+    </view>
+  </view>
+</template>
+
+<template name="oneIndexSubTitle">
+  <view class="queryIndexTitleTextTemplate">{{ oneSubTitleText }}</view>
+</template>
+
+<template name="indexInput">
+  <view class="indexInputModelTemplate" wx:if="{{ currentClickIndex == 1 }}">
+    <button disabled="{{ newButtonDisabled }}" class="indexInputButtonModelTemplate" data-event="inputButton" hover-class="hoverClass" formType="submit">
+      <image src="../../image/icon/ss.png" class="indexInputButtonModelImgTemplate"></image>
+      <view class="indexInputButtonModelViewTemplate">{{ inputButtonObj.inputText }}</view>
+    </button>
+  </view>
+</template>
+
+<template name="indexQueryButton">
+  <view class="indexQueryButtonModelTemplate">
+    <view class="indexQueryButtonTitleTemplate">
+      <block wx:if="{{ queryObj.queryButton }}">
+        <button class="{{ index == currentClickIndex ?'indexQueryButtonTitleButtonColorTemplate':'' }} indexQueryButtonTitleButtonTemplate" wx:for="{{ queryObj.queryButton }}" wx:key="index" data-event="{{ item.event }}" hover-class="hoverClass" formType="submit">
+          <image src="{{ item.image }}" class="{{ item.className }}"></image>
+          <view wx:if="{{ index == currentClickIndex }}" class="indexQueryButtonTitleButtonColorTemplateKuai"></view>
+        </button>
+      </block>
+    </view>
+    <view class="indexQueryButtonContSixTemplate" wx:if="{{ currentClickIndex == 0 }}">
+      <button data-index="{{ index }}" disabled="{{ newButtonDisabled }}" style="border-bottom:{{ item.haveBorderBottom ? '1rpx solid #eeeeee':'none' }}" class="indexQueryButtonContButtonTemplate" wx:for="{{ queryObj.contButton }}" wx:key="index" data-event="{{ item.event }}" hover-class="hoverClass" formType="submit">
+        <view style="border-right:{{ !item.haveBorderRight ? 'none':'3rpx solid #eeeeee'}};" class="indexQueryButtonContButtonTemplateTextView">
+          <view class="indexQueryButtonContButtonTemplateIconText" style="color:{{ item.color }};border:2rpx solid {{ item.color }};">{{ item.iconText }}</view>
+          <view class="indexQueryButtonContButtonTemplateText">{{ item.text }}</view>
+        </view>
+      </button>
+    </view>
+    <template is="indexInput" data="{{ currentClickIndex,inputButtonObj,isShowSearchValue,newButtonDisabled }}"></template>
+  </view>
+</template>
+
+<template name="buttonTitle">
+  <view class="buttonTitleViewTemplate">
+    <view class="buttonTitleViewBgcTemplate"></view>
+    <image src="../../image/icon/zwcx.png" class="buttonTitleViewZwImgTemplate" wx:if="{{ buttonTitleType == 1 }}"></image> <!--政务查询-->
+    <image src="../../image/icon/fjjg.png" class="buttonTitleViewFjImgTemplate" wx:elif="{{ buttonTitleType == 2 }}"></image> <!--附近机构-->
+    <image src="../../image/icon/zxcs.png" class="buttonTitleViewOlImgTemplate" wx:elif="{{ buttonTitleType == 3 }}"></image> <!--在线测试-->
+  </view>
+</template>
+
+<template name="findButton">
+  <block  wx:for="{{ findButtonArr }}" wx:key="index">
+    <button class="findButtonArrTemplate" data-index="{{ index }}" data-event="{{ item.event }}" hover-class="hoverClass" formType="submit">
+      <view class="findButtonArrTemplateText">{{ item.text }}</view>
+      <image src="../../image/icon/jt.png" class="findButtonArrTemplateIcon"></image>
+    </button>
+  </block>
+</template>

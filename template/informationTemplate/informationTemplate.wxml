@@ -1,0 +1,46 @@
+
+
+<template name="informationImg">
+  <button class="newsBtn informationImgButton" data-index="{{ index }}" hover-class="hoverClass"  disabled="{{ informationDisabled }}" formType="submit" data-event="news">
+    <view class="informationImgButtonDescribeImgCont">
+      <image mode="aspectFit" src="{{ item.describeImg }}" class="informationImgButtonDescribeImg"></image>
+    </view>
+    <view class="informationImgButtonView">
+      <view class="newsBtnMoreTextHide informationImgButtonTitle">{{ item.title }}</view>
+      <view class="informationButtonInfo">
+        <view class="informationButtonInfoFlexRow">
+          <image mode="aspectFit" src="{{ item.addressImg }}" class="informationButtonAddressImg"></image>
+          <view class="informationButtonAddressText newsBtnOneTextHide">{{ item.addressText}}</view>
+          <view wx:if="{{ item.isActive }}" class="informationButtonActive">{{ item.tags }}</view>
+        </view>
+        <view class="informationButtonInfoFlexRow">
+          <image src="../../image/icon/icon_zan_gray.png" class="informationButtonInfoZanImg"></image>
+          <view class="informationButtonZan">{{ item.zanNum }}赞</view>
+        </view>
+      </view>
+    </view>
+  </button>
+</template>
+
+<template name="informationText">
+  <button class="newsBtn informationTextButton" data-index="{{ index }}" hover-class="hoverClass"  disabled="{{ informationDisabled }}" formType="submit" data-event="news">
+    <view class="newsBtnMoreTextHide informationImgButtonTitle informationTextButtonTitle">{{ item.title }}</view>
+    <view class="informationButtonInfo">
+      <view class="informationButtonInfoFlexRow">
+        <image mode="aspectFit" src="{{ item.addressImg }}" class="informationButtonAddressImg"></image>
+        <view class="informationButtonAddressText newsBtnOneTextHide">{{ item.addressText}}</view>
+        <view wx:if="{{ item.isActive }}" class="informationButtonActive">{{ item.tags }}</view>
+      </view>
+      <view class="informationButtonInfoFlexRow">
+        <image src="../../image/icon/icon_zan_gray.png" class="informationButtonInfoZanImg"></image>
+        <view class="informationButtonZan">{{ item.zanNum }}赞</view>
+      </view>
+    </view>
+  </button>
+</template>
+
+<template name="information">
+  <block wx:for="{{ informationArr }}" wx:key="index" wx:if="{{ informationArr.length > 0 }}">
+    <template is="{{ item.type }}" data="{{ item,index,scienceDisabled }}"></template>
+  </block>
+</template>
